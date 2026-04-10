@@ -52,7 +52,9 @@ jobs:
       - name: Install dependencies
         run: bun ci
       - name: Build with Next.js
-        run: bun run -d process.env.NEXT_PUBLIC_SITE_URL:"${{ steps.pages.outputs.origin }}" build
+        run: bun run build
+        env:
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
