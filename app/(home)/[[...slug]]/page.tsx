@@ -5,13 +5,13 @@ import {
   DocsPage,
   DocsTitle,
   MarkdownCopyButton,
-  ViewOptionsPopover,
 } from "fumadocs-ui/layouts/docs/page";
 import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig, ogData, ogFallback } from "@/lib/shared";
+import { ViewOptionsPopover } from "@/components/page-actions";
 
 export default async function Page(props: PageProps<"/[[...slug]]">) {
   const params = await props.params;
