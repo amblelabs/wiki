@@ -8,6 +8,9 @@ const config = {
   output: "export",
   basePath: "/wiki",
   reactStrictMode: true,
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default withMDX(config);
