@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import { getMDXComponents } from "@/components/mdx";
 import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
-import { gitConfig } from "@/lib/shared";
+import { gitConfig, ogData, ogFallback } from "@/lib/shared";
 
 export default async function Page(props: PageProps<"/[[...slug]]">) {
   const params = await props.params;
@@ -57,8 +57,11 @@ export async function generateMetadata(
   const page = source.getPage(params.slug);
   if (!page) notFound();
 
+  const subtype = page.data.info.path.split("/")[0];
+  const meta = ogData[subtype as keyof typeof ogData] || ogFallback;
+
   return {
-    title: page.data.title,
+    title: `${page.data.title} | ${meta.name} Wiki`,
     description: page.data.description,
     openGraph: {
       images: getPageImage(page).url,

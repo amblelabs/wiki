@@ -45,7 +45,7 @@ export const ogData = {
     name: "Adventures in Time",
     iconType: "webp",
   }),
-  common: await makeOg({ short: "logo", name: "Common", iconType: "png" }),
+  common: await makeOg({ short: "logo", name: "AmbleLabs", iconType: "png" }),
 };
 
 export const ogFallback = ogData.common;
