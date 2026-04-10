@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig, ogData, ogFallback } from "@/lib/shared";
 import { ViewOptionsPopover } from "@/components/page-actions";
+import { DocsFooter } from "@/components/docs-footer";
 
 export default async function Page(props: PageProps<"/[[...slug]]">) {
   const params = await props.params;
@@ -22,7 +23,13 @@ export default async function Page(props: PageProps<"/[[...slug]]">) {
   const markdownUrl = getPageMarkdownUrl(page).url;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      slots={{
+        footer: DocsFooter,
+      }}
+    >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription className="mb-0">
         {page.data.description}
