@@ -4,7 +4,7 @@ import { docsContentRoute, docsImageRoute, docsRoute } from "./shared";
 import { icons } from "lucide-react";
 
 import AitIcon from "@/public/ait.webp";
-import { createElement, ReactElement } from "react";
+import { createElement } from "react";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({

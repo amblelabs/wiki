@@ -2,8 +2,8 @@ import { readFile } from "fs/promises";
 
 export const appName = "AmbleLabs Wiki";
 export const docsRoute = "/";
-export const docsImageRoute = "/og";
-export const docsContentRoute = "/llms.mdx";
+export const docsImageRoute = "/wiki/og";
+export const docsContentRoute = "/wiki/llms.mdx";
 export const ogColor = "#ad5602";
 export const ogBackgroundColor = "#452201";
 export const ogTextColor = "#e67300";
