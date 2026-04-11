@@ -27,6 +27,7 @@ export default function DefaultSearchDialog(props: SharedProps) {
   const { locale } = useI18n(); // (optional) for i18n
   const { search, setSearch, query } = useDocsSearch({
     type: "static",
+    from: "/wiki/api/search",
     initOrama,
     locale,
   });
