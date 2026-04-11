@@ -68,7 +68,7 @@ jobs:
             'content/wiki/**/*.jpeg',
             'content/wiki/**/*.gif',
             'content/wiki/**/*.svg',
-            'content/wiki/**/*.webp',
+            'content/wiki/**/*.webp'
           ) }}"
           echo "hash=$HASH" >> $GITHUB_OUTPUT
 
