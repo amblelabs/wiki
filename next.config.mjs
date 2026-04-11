@@ -19,7 +19,7 @@ const config = {
     nextImageExportOptimizer_exportFolderPath: "out",
     nextImageExportOptimizer_quality: "80",
     nextImageExportOptimizer_storePicturesInWEBP: "true",
-    nextImageExportOptimizer_exportFolderName: "assets/.cache/",
+    nextImageExportOptimizer_exportFolderName: "assets/.cache",
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },
