@@ -93,10 +93,11 @@ export function remarkImage({
   return async (tree, file) => {
     const importsToInject: { variableName: string; importPath: string }[] = [
       {
-        variableName: "ExportedImage",
-        importPath: "next-image-export-optimizer",
+        variableName: "Image",
+        importPath: "@/components/image",
       },
     ];
+
     const promises: Promise<void>[] = [];
 
     async function onImage(
@@ -169,7 +170,7 @@ export function remarkImage({
         const out: MdxJsxFlowElement = {
           children: [],
           type: "mdxJsxFlowElement",
-          name: "ExportedImage",
+          name: "Image",
           attributes,
         };
 
