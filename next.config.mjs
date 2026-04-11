@@ -15,11 +15,11 @@ const config = {
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
-    nextImageExportOptimizer_imageFolderPath: "public/assets/",
+    nextImageExportOptimizer_imageFolderPath: "public/images",
     nextImageExportOptimizer_exportFolderPath: "out",
     nextImageExportOptimizer_quality: "80",
     nextImageExportOptimizer_storePicturesInWEBP: "true",
-    nextImageExportOptimizer_exportFolderName: "assets/.cache",
+    nextImageExportOptimizer_exportFolderName: "_assets",
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
     nextImageExportOptimizer_remoteImageCacheTTL: "0",
   },

@@ -27,5 +27,5 @@ next-env.d.ts
 
 .direnv
 
-public/assets/.cache
-public/assets/next-image-export-optimizer-hashes.json
+public/_assets
+public/images/next-image-export-optimizer-hashes.json
