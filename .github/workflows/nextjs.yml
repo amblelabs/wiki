@@ -75,7 +75,9 @@ jobs:
       - name: Cache optimized images
         uses: actions/cache@v5
         with:
-          path: public/_assets
+          path: |
+            public/_assets
+            public/images/next-image-export-optimizer-hashes.json
           key: ${{ runner.os }}-imageopt-${{ hashFiles('bun.lock') }}-${{ steps.image-hash.outputs.hash }}
           restore-keys: |
             ${{ runner.os }}-imageopt-${{ hashFiles('bun.lock') }}-
