@@ -4,7 +4,12 @@
 
 "use client";
 import { type ComponentProps, useMemo } from "react";
-import { ChevronDown, ExternalLinkIcon, TextIcon } from "lucide-react";
+import {
+  ChevronDown,
+  ExternalLinkIcon,
+  NotebookPenIcon,
+  TextIcon,
+} from "lucide-react";
 import {
   Popover,
   PopoverTrigger,
@@ -17,6 +22,7 @@ import { cn } from "@/lib/cn";
 export function ViewOptionsPopover({
   markdownUrl,
   githubUrl,
+  cmsUrl,
   ...props
 }: ComponentProps<typeof PopoverTrigger> & {
   /**
@@ -28,6 +34,8 @@ export function ViewOptionsPopover({
    * Source file URL on GitHub
    */
   githubUrl?: string;
+
+  cmsUrl?: string;
 }) {
   const pathname = usePathname();
   const items = useMemo(() => {
@@ -52,6 +60,11 @@ export function ViewOptionsPopover({
         title: "View as Markdown",
         href: markdownUrl,
         icon: <TextIcon />,
+      },
+      cmsUrl && {
+        title: "Open in CMS",
+        href: cmsUrl,
+        icon: <NotebookPenIcon />,
       },
     ].filter((v) => !!v);
   }, [githubUrl, markdownUrl, pathname]);
