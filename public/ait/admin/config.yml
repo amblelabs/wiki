@@ -1,0 +1,112 @@
+logo_url: /favicon.png
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# ================================
+# Backend Configuration
+# ================================
+backend:
+  name: github
+  repo: amblelabs/wiki
+  branch: main
+  base_url: https://sveltia-cms-auth.drtheo.workers.dev/
+
+# ================================
+# Global Media Settings (Overridden per collection)
+# ================================
+media_folder: "public/images"
+public_folder: "/images"
+
+# ================================
+# Collections
+# ================================
+collections:
+  # -------------------------------------------------
+  # 1. CATEGORY MAIN PAGES (creates index.md)
+  # -------------------------------------------------
+  - name: wiki_categories
+    label: "📁 Category Pages"
+    label_singular: "📁 Category Index"
+    folder: content/wiki/ait
+    create: true
+    # 👇 Forces filename to be "index.md"
+    path: "{{section}}/index"
+    media_folder: ".././"
+    public_folder: "/{{section}}"
+
+    summary: "📂 {{section}} ({{title}}/{{title}})"
+
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Section (Folder)"
+        name: "section"
+        widget: "string"
+        hint: "Enter folder name (e.g., getting-started, tutorials, api). This creates or selects the folder."
+        pattern:
+          ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only."]
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - label: "Content"
+        name: "body"
+        widget: "markdown"
+        hint: "This page will be the index of the category folder."
+
+  # -------------------------------------------------
+  # 2. REGULAR WIKI PAGES (creates slug.md)
+  # -------------------------------------------------
+  - name: wiki_pages
+    label: "📄 Wiki Pages"
+    label_singular: "📄 Wiki Page"
+    folder: content/wiki/ait
+    create: true
+    # 👇 Creates a standard .md file inside the chosen folder
+    path: "{{section}}/{{slug}}"
+    media_folder: ".././"
+    public_folder: "/{{section}}"
+
+    summary: "📄 {{section}}/{{title}}"
+    #view_filters:
+    #  - label: "Section"
+    #    field: "section"
+    #    pattern: '^[a-z0-9-]+$'
+
+    view_groups:
+      groups:
+        - name: section
+          label: Categories
+          field: section
+      default: section
+
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
+
+      - name: "section"
+        widget: "relation"
+        collection: "wiki_categories"
+        value_field: "{{fields.section}}"
+        search_fields: ["title", "fields.section"]
+        display_fields: ["title"]
+        multiple: false
+        i18n: "duplicate"
+        dropdown_threshold: 0
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
