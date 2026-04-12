@@ -38,6 +38,9 @@ collections:
     path: "{{section}}/meta"
     # media_folder: ".././"
     # public_folder: "/{{section}}"
+    i18n:
+      structure: multiple_files
+      locales: [en, ru, fr, uk, es, cn]
 
     summary: "📂 {{section}} ({{title}}/{{title}})"
 
@@ -66,6 +69,10 @@ collections:
     path: "{{section}}/{{slug}}"
     media_folder: ""
     public_folder: "{{section}}"
+
+    i18n:
+      structure: multiple_files
+      locales: [en, ru, fr, uk, es, cn]
 
     summary: "📄 {{section}}/{{title}}"
     #view_filters:
