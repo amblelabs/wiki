@@ -24,6 +24,7 @@ media_libraries:
 i18n:
   structure: multiple_files
   locales: [en, ru, fr, uk, es, cn]
+  initial_locales: default
   omit_default_locale_from_file_path: true
 
 # ================================
