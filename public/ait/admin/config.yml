@@ -32,10 +32,9 @@ collections:
     label: "📁 Category Pages"
     label_singular: "📁 Category Index"
     folder: content/wiki/ait
-    extension: mdx
+    format: json
     create: true
-    # 👇 Forces filename to be "index.md"
-    path: "{{section}}/index"
+    path: "{{section}}/meta"
     media_folder: ".././"
     public_folder: "/{{section}}"
 
@@ -52,16 +51,6 @@ collections:
         hint: "Enter folder name (e.g., getting-started, tutorials, api). This creates or selects the folder."
         pattern:
           ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only."]
-
-      - label: "Description"
-        name: "description"
-        widget: "text"
-        required: false
-
-      - label: "Content"
-        name: "body"
-        widget: "markdown"
-        hint: "This page will be the index of the category folder."
 
   # -------------------------------------------------
   # 2. REGULAR WIKI PAGES (creates slug.md)
