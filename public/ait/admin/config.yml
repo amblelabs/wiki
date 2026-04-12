@@ -78,7 +78,7 @@ collections:
     path: "{{section}}/{{slug}}"
 
     media_folder: ""
-    public_folder: ""
+    public_folder: "{{slug}}"
 
     i18n: true
 
