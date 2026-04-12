@@ -1,3 +1,4 @@
+import { Tokenizer } from "@orama/orama";
 import { createTokenizer as mandarinTokenizer } from "@orama/tokenizers/mandarin";
 import { defineI18n } from "fumadocs-core/i18n";
 
@@ -24,8 +25,15 @@ function lang(name: string): { language: string; _language: string } {
   };
 }
 
-function mandarin(): { components: { tokenizer: any }; search: any } {
+function mandarin(): { _language?: string } & {
+  components: { tokenizer: Tokenizer };
+  search: {
+    threshold: number;
+    tolerance: number;
+  };
+} {
   return {
+    _language: undefined,
     components: {
       tokenizer: mandarinTokenizer(),
     },
