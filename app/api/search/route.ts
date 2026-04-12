@@ -1,4 +1,4 @@
-import { localeMap } from "@/components/search";
+import { localeMap } from "@/lib/i18n";
 import { source } from "@/lib/source";
 import { createFromSource } from "fumadocs-core/search/server";
 
