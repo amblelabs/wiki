@@ -1,5 +1,6 @@
 logo_url: /favicon.png
 app_title: AIT Wiki Admin
+site_url: https://amblelabs.dev/wiki
 
 slug:
   encoding: "ascii"
@@ -35,8 +36,8 @@ collections:
     format: json
     create: true
     path: "{{section}}/meta"
-    media_folder: ".././"
-    public_folder: "/{{section}}"
+    # media_folder: ".././"
+    # public_folder: "/{{section}}"
 
     summary: "📂 {{section}} ({{title}}/{{title}})"
 
@@ -63,8 +64,8 @@ collections:
     create: true
     # 👇 Creates a standard .md file inside the chosen folder
     path: "{{section}}/{{slug}}"
-    media_folder: ".././"
-    public_folder: "/{{section}}"
+    media_folder: ""
+    public_folder: "{{section}}"
 
     summary: "📄 {{section}}/{{title}}"
     #view_filters:
