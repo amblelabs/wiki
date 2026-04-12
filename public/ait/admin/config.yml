@@ -77,19 +77,7 @@ collections:
     path: "{{section}}/{{slug}}"
 
     media_folder: ""
-    public_folder: "/{{section}}"
-
-    #media_folder: "../"
-    #public_folder: "{{section}}"
-
-    # media_folder: "../"
-    # public_folder: ""
-
-    # media_folder: "../"
-    # public_folder: "./"
-
-    # media_folder: "./"
-    # public_folder: "{{section}}"
+    public_folder: ""
 
     i18n: true
 
