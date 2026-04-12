@@ -93,7 +93,7 @@ export function remarkImage({
   return async (tree, file) => {
     const importsToInject: { variableName: string; importPath: string }[] = [
       {
-        variableName: "Image",
+        variableName: "ImageZoom",
         importPath: "@/components/image",
       },
     ];
@@ -170,7 +170,7 @@ export function remarkImage({
         const out: MdxJsxFlowElement = {
           children: [],
           type: "mdxJsxFlowElement",
-          name: "Image",
+          name: "ImageZoom",
           attributes,
         };
 
