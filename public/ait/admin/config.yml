@@ -1,6 +1,6 @@
-logo_url: /favicon.png
+logo_url: https://amblelabs.dev/wiki/logo.png
 app_title: AIT Wiki Admin
-site_url: https://amblelabs.dev/wiki
+site_url: https://amblelabs.dev/wiki/ait/
 
 slug:
   encoding: "ascii"
