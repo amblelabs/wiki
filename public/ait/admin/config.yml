@@ -40,8 +40,8 @@ collections:
     format: json
     create: true
     path: "{{section}}/meta"
-    # media_folder: ".././"
-    # public_folder: "/{{section}}"
+
+    i18n: true
 
     summary: "📂 {{section}} ({{title}}/{{title}})"
 
@@ -49,6 +49,7 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
+        i18n: true
 
       - label: "Section (Folder)"
         name: "section"
@@ -68,13 +69,11 @@ collections:
     create: true
     # 👇 Creates a standard .md file inside the chosen folder
     path: "{{section}}/{{slug}}"
+
     media_folder: ""
     public_folder: "{{section}}"
 
-    i18n:
-      structure: multiple_files
-      locales: [en, ru, fr, uk, es, cn]
-      omit_default_locale_from_file_path: true
+    i18n: true
 
     summary: "📄 {{section}}/{{title}}"
     #view_filters:
@@ -93,11 +92,13 @@ collections:
       - label: "Title"
         name: "title"
         widget: "string"
+        i18n: true
 
       - label: "Description"
         name: "description"
         widget: "text"
         required: false
+        i18n: true
 
       - name: "section"
         widget: "relation"
@@ -112,3 +113,4 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        i18n: true
