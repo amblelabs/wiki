@@ -76,8 +76,8 @@ collections:
     # 👇 Creates a standard .md file inside the chosen folder
     path: "{{section}}/{{slug}}"
 
-    media_folder: ""
-    public_folder: "../"
+    media_folder: "{{section}}"
+    public_folder: ""
 
     i18n: true
 
