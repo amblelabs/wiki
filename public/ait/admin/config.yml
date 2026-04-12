@@ -41,6 +41,7 @@ collections:
     i18n:
       structure: multiple_files
       locales: [en, ru, fr, uk, es, cn]
+      omit_default_locale_from_file_path: true
 
     summary: "📂 {{section}} ({{title}}/{{title}})"
 
@@ -73,6 +74,7 @@ collections:
     i18n:
       structure: multiple_files
       locales: [en, ru, fr, uk, es, cn]
+      omit_default_locale_from_file_path: true
 
     summary: "📄 {{section}}/{{title}}"
     #view_filters:
