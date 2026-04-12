@@ -16,10 +16,16 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.drtheo.workers.dev/
 
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+
 i18n:
   structure: multiple_files
   locales: [en, ru, fr, uk, es, cn]
   omit_default_locale_from_file_path: true
+
 # ================================
 # Global Media Settings (Overridden per collection)
 # ================================
