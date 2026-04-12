@@ -14,9 +14,14 @@ import { gitConfig, ogData, ogFallback } from "@/lib/shared";
 import { ViewOptionsPopover } from "@/components/page-actions";
 import { DocsFooter } from "@/components/docs-footer";
 
-export default async function Page(props: PageProps<"/[[...slug]]">) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string; slug?: string[] }>;
+}) {
+  const { slug, lang } = await params;
+
+  const page = source.getPage(slug, lang);
   if (!page) notFound();
 
   const MDX = page.data.body;
@@ -57,11 +62,13 @@ export async function generateStaticParams() {
   return source.generateParams();
 }
 
-export async function generateMetadata(
-  props: PageProps<"/[[...slug]]">,
-): Promise<Metadata> {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; slug?: string[] }>;
+}): Promise<Metadata> {
+  const { slug, lang } = await params;
+  const page = source.getPage(slug, lang);
   if (!page) notFound();
 
   const subtype = page.data.info.path.split("/")[0];

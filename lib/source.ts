@@ -5,12 +5,14 @@ import { icons } from "lucide-react";
 
 import AitIcon from "@/public/ait.webp";
 import { createElement } from "react";
+import { i18n } from "./i18n";
 
 // See https://fumadocs.dev/docs/headless/source-api for more info
 export const source = loader({
   baseUrl: docsRoute,
   source: docs.toFumadocsSource(),
   plugins: [],
+  i18n,
   icon: (icon) => {
     if (!icon) return;
 

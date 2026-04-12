@@ -13,6 +13,7 @@
   "dependencies": {
     "@giscus/react": "^3.1.0",
     "@orama/orama": "^3.1.18",
+    "@orama/tokenizers": "^3.1.18",
     "@takumi-rs/image-response": "^0.73.1",
     "fumadocs-core": "16.7.11",
     "fumadocs-mdx": "14.2.11",
