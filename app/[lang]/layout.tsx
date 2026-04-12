@@ -17,7 +17,7 @@ export default async function Layout({
   const lang = (await params).lang;
 
   return (
-    <html lang="en" className={inter.className} suppressHydrationWarning>
+    <html lang={lang} className={inter.className} suppressHydrationWarning>
       <MinGoogleAnalytics googleId="G-3B98G1FDF0" />
       <body className="flex flex-col min-h-screen">
         <RootProvider search={{ SearchDialog }} i18n={i18nUI.provider(lang)}>
