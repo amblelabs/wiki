@@ -16,6 +16,10 @@ backend:
   branch: main
   base_url: https://sveltia-cms-auth.drtheo.workers.dev/
 
+i18n:
+  structure: multiple_files
+  locales: [en, ru, fr, uk, es, cn]
+  omit_default_locale_from_file_path: true
 # ================================
 # Global Media Settings (Overridden per collection)
 # ================================
@@ -38,10 +42,6 @@ collections:
     path: "{{section}}/meta"
     # media_folder: ".././"
     # public_folder: "/{{section}}"
-    i18n:
-      structure: multiple_files
-      locales: [en, ru, fr, uk, es, cn]
-      omit_default_locale_from_file_path: true
 
     summary: "📂 {{section}} ({{title}}/{{title}})"
 
