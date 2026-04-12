@@ -31,6 +31,7 @@ collections:
     label: "📁 Category Pages"
     label_singular: "📁 Category Index"
     folder: content/wiki/ait
+    extension: mdx
     create: true
     # 👇 Forces filename to be "index.md"
     path: "{{section}}/index"
@@ -68,6 +69,7 @@ collections:
     label: "📄 Wiki Pages"
     label_singular: "📄 Wiki Page"
     folder: content/wiki/ait
+    extension: mdx
     create: true
     # 👇 Creates a standard .md file inside the chosen folder
     path: "{{section}}/{{slug}}"
