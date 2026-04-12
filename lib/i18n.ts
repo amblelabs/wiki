@@ -1,10 +1,10 @@
-import { createTokenizer } from "@orama/tokenizers/mandarin";
+import { createTokenizer as mandarinTokenizer } from "@orama/tokenizers/mandarin";
 import { defineI18n } from "fumadocs-core/i18n";
 
 export const localeMap = {
   // [locale]: Orama options
-  ru: lang("russian"),
   en: lang("english"),
+  ru: lang("russian"),
   fr: lang("french"),
   uk: lang("ukrainian"),
   es: lang("spanish"),
@@ -24,13 +24,10 @@ function lang(name: string): { language: string; _language: string } {
   };
 }
 
-function mandarin(): {
-  _language: string;
-} & { _language: string; components: { tokenizer: any }; search: any } {
+function mandarin(): { components: { tokenizer: any }; search: any } {
   return {
-    _language: "mandarin",
     components: {
-      tokenizer: createTokenizer(),
+      tokenizer: mandarinTokenizer(),
     },
     search: {
       threshold: 0,

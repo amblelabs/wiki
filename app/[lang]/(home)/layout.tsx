@@ -6,14 +6,11 @@ import { ReactNode } from "react";
 export default async function Layout({
   params,
   children,
-}: {
-  params: Promise<{ lang: string }>;
-  children: ReactNode;
-}) {
+}: LayoutProps<"/[lang]">) {
   const { lang } = await params;
 
   return (
-    <DocsLayout tree={source.getPageTree(lang)} {...baseOptions(lang)}>
+    <DocsLayout {...baseOptions(lang)} tree={source.getPageTree(lang)}>
       {children}
     </DocsLayout>
   );

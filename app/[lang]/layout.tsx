@@ -14,7 +14,7 @@ export default async function Layout({
   params,
   children,
 }: LayoutProps<"/[lang]">) {
-  const lang = (await params).lang;
+  const { lang } = await params;
 
   return (
     <html lang={lang} className={inter.className} suppressHydrationWarning>
