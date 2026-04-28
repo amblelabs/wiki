@@ -1,0 +1,39 @@
+---
+title: Custom Hum
+description: This is how you can add unique ambient sounds to your tardis interior.
+section: addons
+---
+
+## Datapack
+
+1. Create a new `.json` file in the path below.
+
+`data/namespace/hum/hum_name.json`
+
+2. Inside this new `.json` file, type the following:
+
+```plain
+{
+ "id": "namespace:of_hum",
+ "sound": {
+   "sound_id": "sound:id"
+ }
+}
+```
+
+3. When replacing the `namespace:of_hum` and the `sound:id`. Make sure that the `of_hum` part is named the same as the json file and the sounds id matches what it is in-game (using the `/playsound` command).
+
+If you don't know how to add a custom sound to Minecraft, follow [THIS VIDEO](https://www.youtube.com/watch?v=igZQdEoxcQk) !
+
+example:
+
+```plain
+{
+  "id": "ait:copper",
+  "sound": {
+    "sound_id": "ait:tardis/hums/copper_hum"
+  }
+}
+```
+
+##
