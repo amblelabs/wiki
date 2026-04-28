@@ -1,0 +1,43 @@
+---
+title: Custom Vortexes
+description: Add custom vortex textures to travel in space and time with style!
+section: addons
+---
+
+## Datapack
+
+1. Create a new `.json` file in the path below.
+
+`data/namespace/fx/vortex/vortex_name.json`
+
+2. Inside this new `.json` file, type the following:
+
+```plain
+{
+  "id": "namespace:vortex_name",
+  "texture": "namespace:textures/vortex/vortex_name.png"
+}
+```
+
+3. Replace `vortex_name` with what ever you want the vortex to be named (you NEED to use underscores and lowercase for the name). This name is automatically translated so doesn't need to be added to your language file.
+
+example:
+
+```plain
+{
+  "id": "ait:lego",
+  "texture": "ait:textures/vortex/lego.png"
+}
+```
+
+## Textures
+
+1. Place your **`.png`** vortex texture in this path: `assets/namespace/vortex/vortex_name.png` in your resourcepack. 
+
+ You can also add layers to the vortex, this is done by making 2 other textures with the same name as your main texture BUT you add `_second` or `_third` to the end of the name. 
+
+example: 
+
+`lego_second.png` 
+
+`lego_third.png`
