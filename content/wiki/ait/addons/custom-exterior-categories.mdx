@@ -1,0 +1,30 @@
+---
+title: Custom Exterior Categories
+description: This can be helpful when adding custom exterior models so that they are easy to find in the monitor!
+section: addons
+---
+
+1. Create a new `.json` file in the path below.
+
+`data/namespace/categories/category_name.json`
+
+2. Inside this new `.json` file, type the following:
+
+```plain
+{
+"id": "namespace:category_name",
+ "name": "CategoryName"
+ }
+```
+
+3. Replace `category_name` with what ever you want the category to be named (you NEED to use underscores and lowercase for the `id`). This name does not need to be translated as it will use what ever is defined in `"name"`.
+
+example:
+ 
+
+```plain
+{
+"id": "mydatapack:police_box",
+ "name": "PoliceBox"
+ }
+```
