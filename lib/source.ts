@@ -4,6 +4,7 @@ import { docsContentRoute, docsImageRoute, docsRoute } from "./shared";
 import { icons } from "lucide-react";
 
 import AitIcon from "@/public/ait.webp";
+import StargateIcon from "@/public/stargate.webp";
 import { createElement } from "react";
 import { i18n } from "./i18n";
 
@@ -24,7 +25,7 @@ export const source = loader({
       });
     }
 
-    if (icon === "stargate") {  // Add this block
+    if (icon === "stargate") {
       return createElement("img", {
         src: StargateIcon.src,
         alt: "Stargate Icon",
