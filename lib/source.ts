@@ -24,6 +24,14 @@ export const source = loader({
       });
     }
 
+    if (icon === "stargate") {  // Add this block
+      return createElement("img", {
+        src: StargateIcon.src,
+        alt: "Stargate Icon",
+        className: "rounded",
+      });
+    }
+
     return createElement(
       icons[icon as keyof typeof icons] || icons.BadgeQuestionMark,
     );
