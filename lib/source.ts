@@ -6,6 +6,9 @@ import { icons } from "lucide-react";
 import AitIcon from "@/public/ait.webp";
 import StargateIcon from "@/public/stargate.webp";
 import K9Icon from "@/public/k9.webp";
+import RegenIcon from "@/public/regen.webp";
+import WAIcon from "@/public/wa.webp";
+import TronIcon from "@/public/tron.webp";
 import { createElement } from "react";
 import { i18n } from "./i18n";
 
@@ -33,10 +36,35 @@ export const source = loader({
         className: "rounded",
       });
     }
+
     if (icon === "k9") {  // Add this block
       return createElement("img", {
         src: K9Icon.src,
         alt: "K9 Icon",
+        className: "rounded",
+      });
+    }
+
+    if (icon === "regen") {  // Add this block
+      return createElement("img", {
+        src: RegenIcon.src,
+        alt: "Regen Icon",
+        className: "rounded",
+      });
+    }
+
+    if (icon === "wa") {
+      return createElement("img", {
+        src: WAIcon.src,
+        alt: "Weeping Angels Icon",
+        className: "rounded",
+      });
+    }
+
+    if (icon === "tron") {
+      return createElement("img", {
+        src: TronIcon.src,
+        alt: "Tron Icon",
         className: "rounded",
       });
     }
