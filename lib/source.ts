@@ -5,6 +5,7 @@ import { icons } from "lucide-react";
 
 import AitIcon from "@/public/ait.webp";
 import StargateIcon from "@/public/stargate.webp";
+import K9Icon from "@/public/k9.webp";
 import { createElement } from "react";
 import { i18n } from "./i18n";
 
@@ -32,6 +33,14 @@ export const source = loader({
         className: "rounded",
       });
     }
+    if (icon === "k9") {  // Add this block
+      return createElement("img", {
+        src: K9Icon.src,
+        alt: "K9 Icon",
+        className: "rounded",
+      });
+    }
+
 
     return createElement(
       icons[icon as keyof typeof icons] || icons.BadgeQuestionMark,
