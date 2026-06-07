@@ -9,6 +9,7 @@ import K9Icon from "@/public/k9.webp";
 import RegenIcon from "@/public/regen.webp";
 import WAIcon from "@/public/wa.webp";
 import TronIcon from "@/public/tron.webp";
+import Ait2Icon from "@/public/ait2.webp";
 import { createElement } from "react";
 import { i18n } from "./i18n";
 
@@ -69,6 +70,13 @@ export const source = loader({
       });
     }
 
+    if (icon === "ait2") {
+      return createElement("img", {
+        src: Ait2Icon.src,
+        alt: "AIT2 Icon",
+        className: "rounded",
+      });
+    }
 
     return createElement(
       icons[icon as keyof typeof icons] || icons.BadgeQuestionMark,
