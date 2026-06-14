@@ -18,7 +18,7 @@ export default async function Layout({
 
   return (
     <html lang={lang} className={inter.className} suppressHydrationWarning>
-      <MinGoogleAnalytics googleId="G-3B98G1FDF0" />
+      <MinGoogleAnalytics googleId="G-ZWTBEK75YY" />
       <body className="flex flex-col min-h-screen">
         <RootProvider search={{ SearchDialog }} i18n={i18nUI.provider(lang)}>
           {children}
