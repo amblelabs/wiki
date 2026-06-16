@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/global.css";
-import { MinGoogleAnalytics } from "@/components/min-google-analytics";
+import { GoogleAnalytics } from '@next/third-parties/google'
 import { RootProvider } from "fumadocs-ui/provider/next";
 import SearchDialog from "@/components/search";
 import { i18nUI } from "@/lib/layout.shared";
@@ -18,12 +18,12 @@ export default async function Layout({
 
   return (
     <html lang={lang} className={inter.className} suppressHydrationWarning>
-      <MinGoogleAnalytics googleId="G-ZWTBEK75YY" />
       <body className="flex flex-col min-h-screen">
         <RootProvider search={{ SearchDialog }} i18n={i18nUI.provider(lang)}>
           {children}
         </RootProvider>
       </body>
+      <GoogleAnalytics gaId="G-ZWTBEK75YY" />
     </html>
   );
 }
