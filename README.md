@@ -3,8 +3,8 @@ This is the repository for the Adventures in Time Wiki. It is currently being up
 
 ## General Information
 This wiki can be located [here](https://amblelabs.dev/wiki).
-<br>It is built using a thing.
-<br>The Archivus team uses [a CMS]() for editing.
+<br>It is built using [nextjs](https://nextjs.org/), [react](https://react.dev/), [tailwind](https://tailwindcss.com/) and [fumadocs](https://www.fumadocs.dev/) .
+<br>The Archivus team uses [scveltia CMS](https://sveltiacms.app/) for editing.
 
 ## Wiki Information
 The current version of AIT is 1.2.12 Fabric, 1.0.2+1.2.12 Forge.
@@ -12,4 +12,4 @@ The current version of AIT is 1.2.12 Fabric, 1.0.2+1.2.12 Forge.
 <br>If there is any incorrect information, please create an issue, pull request or comment on the respective page.
 
 TODO:
-- kill people
+- kill Todd
