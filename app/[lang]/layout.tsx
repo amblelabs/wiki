@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/app/global.css";
-import { GoogleAnalytics } from '@next/third-parties/google'
 import { RootProvider } from "fumadocs-ui/provider/next";
 import SearchDialog from "@/components/search";
 import { i18nUI } from "@/lib/layout.shared";
+
+import { ConsentManager } from "@/components/consent-manager";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,11 +20,12 @@ export default async function Layout({
   return (
     <html lang={lang} className={inter.className} suppressHydrationWarning>
       <body className="flex flex-col min-h-screen">
-        <RootProvider search={{ SearchDialog }} i18n={i18nUI.provider(lang)}>
-          {children}
-        </RootProvider>
+        <ConsentManager>
+          <RootProvider search={{ SearchDialog }} i18n={i18nUI.provider(lang)}>
+            {children}
+          </RootProvider>
+        </ConsentManager>
       </body>
-      <GoogleAnalytics gaId="G-ZWTBEK75YY" />
     </html>
   );
 }
