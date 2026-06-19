@@ -41,14 +41,7 @@ Inside this new .json file, paste:
   "enabled": true/false,
   "width": VALUE,
   "height": VALUE,
-  "north": [VALUE,VALUE,VALUE],
-  "north_east": [VALUE,VALUE,VALUE],
-  "east": [VALUE,VALUE,VALUE],
-  "south_east": [VALUE,VALUE,VALUE],
-  "south": [VALUE,VALUE,VALUE],
-  "south_west": [VALUE,VALUE,VALUE],
-  "west": [VALUE,VALUE,VALUE],
-  "north_west": [VALUE,VALUE,VALUE]
+  "offset": [VALUE,VALUE,VALUE]
   }
 }
 ```
@@ -72,10 +65,7 @@ Inside this new .json file, paste:
   "right_animation": "namespace:right_door_animation_name",
   "has_transparent_doors": true/false,
   "portal_info": {
-    "north": [VALUE,VALUE,VALUE],
-    "east": [VALUE,VALUE,VALUE],
-    "south": [VALUE,VALUE,VALUE],
-    "west": [VALUE,VALUE,VALUE]
+    "offset": [VALUE,VALUE,VALUE]
   }
 }
 ```
@@ -87,12 +77,12 @@ Inside this new .json file, paste:
 
 ### BOTI Portal
 
-- For the `portal_info` you will need to manually set its positions and scale (FYI: both interior and exterior doors use the same width and height) for both the interior AND exterior door. You can also set whether the BOTI Portal is always visible or not by setting `has_transparent_doors` to `true or false`
+- For the `portal_info` you will need to manually set its `offset` (position) and scale (FYI: both interior and exterior doors use the same width and height) for both the interior AND exterior door. You can also set whether the BOTI Portal is always visible or not by setting `has_transparent_doors` to `true or false`
 
 ### Custom Animations
 
 - You can also add custom `mat, demat, and landed` animations (do be aware that they wont override any animations you have selected in the monitor, both will run at the same time)
-- Along with exterior animations, you can add custom door animations for both doors. This will also determine the amount of doors your exterior has. (if you want just 1 door, only make a `left_animation` ).
+- Along with exterior animations, you can add custom door animations for both doors. This will also determine the amount of doors your exterior has. (if you want just one door, only make a `left_animation` ).
 
 ### Get your model in game
 
