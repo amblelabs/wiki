@@ -65,6 +65,11 @@
                 icon: "info",
                 fields: [
                     {
+                       name: "title",
+                       label: "Title",
+                       widget: "string"
+                    },
+                    {
                         name: "type",
                         label: "Type",
                         widget: "select",
@@ -83,19 +88,20 @@
                     },
                 ],
                 pattern:
-                    /^> \[!(NOTE|TIP|IMPORTANT|WARNING|CAUTION)\]\n^> (.*)$/gm,
+                    /^<Callout type="([^"]+)">\n([\s\S]*?)\n<\/Callout>$/,
                 fromBlock: function (match) {
                     console.log(match);
                     return {
-                        type: match[1],
-                        message: match[2],
+                        title: match[1],
+                        type: match[2],
+                        message: match[3],
                     };
                 },
                 toBlock: function (obj) {
-                    return `> [!${obj.type}]\n> ${obj.message}`;
+                    return `<Callout title=${obj.title} type=${obj.type}>\n${obj.message}\n</Callout>`;
                 },
                 toPreview: function (obj) {
-                    return `> [!${obj.type}]\n> ${obj.message}`;
+                    return `<Callout title=${obj.title} type=${obj.type}>\n${obj.message}\n</Callout>`;
                 },
             });
         </script>
