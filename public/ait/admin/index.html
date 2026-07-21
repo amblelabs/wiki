@@ -88,7 +88,7 @@
                     },
                 ],
                 pattern:
-                    /^<Callout type="([^"]+)">\n([\s\S]*?)\n<\/Callout>$/,
+                    /^<Callout title="([^"]*)" type="([^"]*)">\n([\s\S]*?)\n<\/Callout>$/,
                 fromBlock: function (match) {
                     console.log(match);
                     return {
