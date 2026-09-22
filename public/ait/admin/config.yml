@@ -36,40 +36,23 @@ public_folder: "/images"
 # ================================
 # Collections
 # ================================
-# ================================
-# Collections
-# ================================
 collections:
   # -------------------------------------------------
-  # 1. CATEGORY MAIN PAGES (creates index.md/json)
+  # 1. CATEGORY MAIN PAGES (creates index.md)
   # -------------------------------------------------
   - name: wiki_categories
     label: "📁 Category Pages"
     label_singular: "📁 Category Index"
-    folder: content/wiki
+    folder: content/wiki/ait
     format: json
     create: true
-    path: "{{wiki}}/{{section}}/meta"
+    path: "{{section}}/meta"
 
     i18n: true
 
-    summary: "📂 {{wiki}} / {{section}} ({{title}})"
-
-    view_groups:
-      groups:
-        - name: wiki
-          label: Wiki
-          field: wiki
-      default: wiki
+    summary: "📂 {{section}} ({{title}}/{{title}})"
 
     fields:
-      - label: "Target Wiki"
-        name: "wiki"
-        widget: "select"
-        options: ["ait", "k9"]
-        default: "ait"
-        hint: "Select which wiki this category belongs to."
-
       - label: "Title"
         name: "title"
         widget: "string"
@@ -78,49 +61,41 @@ collections:
       - label: "Section (Folder)"
         name: "section"
         widget: "string"
-        hint: "Enter folder name (e.g., getting-started). This creates or selects the folder."
+        hint: "Enter folder name (e.g., getting-started, tutorials, api). This creates or selects the folder."
         pattern:
           ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only."]
 
   # -------------------------------------------------
-  # 2. REGULAR WIKI PAGES (creates slug.mdx)
+  # 2. REGULAR WIKI PAGES (creates slug.md)
   # -------------------------------------------------
   - name: wiki_pages
     label: "📄 Wiki Pages"
     label_singular: "📄 Wiki Page"
-    # 👇 Changed to root wiki folder
-    folder: content/wiki
+    folder: content/wiki/ait
     extension: mdx
     create: true
-    # 👇 Dynamically builds path based on selected wiki
-    path: "{{wiki}}/{{section}}/{{slug}}"
+    # 👇 Creates a standard .md file inside the chosen folder
+    path: "{{section}}/{{slug}}"
 
     media_folder: ""
     public_folder: "{{slug}}"
 
     i18n: true
 
-    summary: "📄 [{{wiki}}] {{section}}/{{title}}"
+    summary: "📄 {{section}}/{{title}}"
+    #view_filters:
+    #  - label: "Section"
+    #    field: "section"
+    #    pattern: '^[a-z0-9-]+$'
 
     view_groups:
       groups:
-        - name: wiki
-          label: Wiki
-          field: wiki
         - name: section
           label: Categories
           field: section
-      # Groups by Wiki first, making it easy to manage multiple wikis
-      default: wiki
+      default: section
 
     fields:
-      # 👇 New field to route the page to the correct wiki folder
-      - label: "Target Wiki"
-        name: "wiki"
-        widget: "select"
-        options: ["ait", "k9"]
-        default: "ait"
-
       - label: "Title"
         name: "title"
         widget: "string"
@@ -136,9 +111,8 @@ collections:
         widget: "relation"
         collection: "wiki_categories"
         value_field: "{{fields.section}}"
-        search_fields: ["title", "fields.section", "wiki"]
-        # 👇 Displays the Wiki name next to the category in the dropdown so you don't mix them up
-        display_fields: ["wiki", "title"]
+        search_fields: ["title", "fields.section"]
+        display_fields: ["title"]
         multiple: false
         i18n: "duplicate"
         dropdown_threshold: 0
