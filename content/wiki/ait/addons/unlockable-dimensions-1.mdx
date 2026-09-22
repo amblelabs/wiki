@@ -4,29 +4,28 @@ description: You can use this if you want to make certain dimensions locked behi
 section: addons
 ---
 
-1. Create a new `.json` file in the path below.
-
-`data/namespace/locked_dimension/dimension_name.json`
+1. Create a new `.json` file in the path below. Note, that it must be a valid datapack.
+`data/[namespace]/locked_dimension/[dimension_name].json`
 
 2. Inside this new `.json` file, type the following:
 
 ```plain
 {
  "dimension": "dimension:id",
- "stack": "item stack codec"
+ "stack": // item stack codec
 }
 ```
 
 3. Replace `dimension:id` with whatever dimension you want to lock (make sure it is the exact dimension id, you can check by doing `/execute in` in the in-game chat). The `"stack"` will be the item you use on the telepathic circuit control to unlock the defined dimension!
 
-example:
+Example:
 
 ```plain
 {
   "dimension": "minecraft:the_nether",
   "stack": {
     "id": "minecraft:stick",
-    "count": 1
+    "Count": 1
   }
 }
 ```
