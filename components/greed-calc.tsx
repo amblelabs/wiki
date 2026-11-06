@@ -2,7 +2,7 @@
 
 import React, { useState, ChangeEvent } from 'react';
 
-export function greedCalc(): React.JSX.Element {
+export function GreedCalc(): React.JSX.Element {
   const [goldIng, setGoldIng] = useState<number>(0);
   const [goldBlk, setGoldBlk] = useState<number>(0);
   const [emerald, setEmerald] = useState<number>(0);

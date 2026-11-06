@@ -1,12 +1,12 @@
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
-import { greedCalc } from "./greed-calc";
+import { GreedCalc } from "@/components/greed-calc";
 
-export function getMDXComponents(components?: MDXComponents) {
+export function getMDXComponents(components?: MDXComponents){
   return {
     ...defaultMdxComponents,
-    greedCalc,
+    GreedCalc,
     ...components,
   } satisfies MDXComponents;
 }
