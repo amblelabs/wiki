@@ -78,7 +78,7 @@ html > body[data-scroll-locked] {
     background-color: var(--color-fd-background);
     color: var(--color-fd-foreground);
     border-radius: 0.5rem;
-    padding: 0.375rem 0.75rem;
+    padding: 0.375rem 0.25rem;
     outline: none;
     transition: border-color 0.15s ease;
   }
