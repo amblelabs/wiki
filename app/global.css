@@ -71,7 +71,7 @@ html > body[data-scroll-locked] {
   input[type="number"], 
   input[type="text"] {
     box-sizing: border-box;
-    height: 1rem;
+    height: 1.1rem;
     border-width: 1px;
     border-style: solid;
     border-color: var(--color-fd-border);
