@@ -6,8 +6,8 @@ import { greedCalc } from "./greed-calc";
 export function getMDXComponents(components?: MDXComponents) {
   return {
     ...defaultMdxComponents,
-    ...components,
     greedCalc,
+    ...components,
   } satisfies MDXComponents;
 }
 
