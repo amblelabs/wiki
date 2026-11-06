@@ -1,0 +1,123 @@
+logo_url: https://amblelabs.dev/wiki/logo.png
+app_title: Regenertion Wiki Admin
+site_url: https://amblelabs.dev/wiki/
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+# ================================
+# Backend Configuration
+# ================================
+backend:
+  name: github
+  repo: amblelabs/wiki
+  branch: main
+  base_url: https://sveltia-cms-auth.drtheo.workers.dev/
+
+media_libraries:
+  default:
+    config:
+      slugify_filename: true
+
+i18n:
+  structure: multiple_files
+  locales: [en, ru, fr, uk, es, cn]
+  initial_locales: default
+  omit_default_locale_from_file_path: true
+
+# ================================
+# Global Media Settings (Overridden per collection)
+# ================================
+media_folder: "public/images"
+public_folder: "/images"
+
+# ================================
+# Collections
+# ================================
+collections:
+  # -------------------------------------------------
+  # 1. CATEGORY MAIN PAGES (creates index.md)
+  # -------------------------------------------------
+  - name: wiki_categories
+    label: "📁 Category Pages"
+    label_singular: "📁 Category Index"
+    folder: content/wiki/regen
+    format: json
+    create: true
+    path: "{{section}}/meta"
+
+    i18n: true
+
+    summary: "📂 {{section}} ({{title}}/{{title}})"
+
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+
+      - label: "Section (Folder)"
+        name: "section"
+        widget: "string"
+        hint: "Enter folder name (e.g., getting-started, tutorials, api). This creates or selects the folder."
+        pattern:
+          ["^[a-z0-9-]+$", "Use lowercase letters, numbers, and hyphens only."]
+
+  # -------------------------------------------------
+  # 2. REGULAR WIKI PAGES (creates slug.md)
+  # -------------------------------------------------
+  - name: wiki_pages
+    label: "📄 Wiki Pages"
+    label_singular: "📄 Wiki Page"
+    folder: content/wiki/regen
+    extension: mdx
+    create: true
+    # 👇 Creates a standard .md file inside the chosen folder
+    path: "{{section}}/{{slug}}"
+
+    media_folder: ""
+    public_folder: "{{slug}}"
+
+    i18n: true
+
+    summary: "📄 {{section}}/{{title}}"
+    #view_filters:
+    #  - label: "Section"
+    #    field: "section"
+    #    pattern: '^[a-z0-9-]+$'
+
+    view_groups:
+      groups:
+        - name: section
+          label: Categories
+          field: section
+      default: section
+
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+
+      - label: "Description"
+        name: "description"
+        widget: "text"
+        required: false
+        i18n: true
+
+      - name: "section"
+        widget: "relation"
+        collection: "wiki_categories"
+        value_field: "{{fields.section}}"
+        search_fields: ["title", "fields.section"]
+        display_fields: ["title"]
+        multiple: false
+        i18n: "duplicate"
+        dropdown_threshold: 0
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+        i18n: true
