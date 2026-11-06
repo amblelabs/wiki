@@ -33,7 +33,7 @@ export function GreedCalc(): React.JSX.Element {
               ].map((item) => (
                 <div key={item.id}>
                   <label htmlFor={item.id}>
-                    {item.label}
+                    {item.label}{": "}
                   </label>
                   <input
                     id={item.id}
