@@ -1,4 +1,5 @@
-// components/Calculator.tsx
+'use client'
+
 import React, { useState, ChangeEvent } from 'react';
 
 export function greedCalc(): React.JSX.Element {
