@@ -27,14 +27,39 @@ There are two main types of energy consumption, instantaneous and upkeep. Most a
 
 By double-pressing jump in succession, you are able to enter 3D flight, wherein WASD movement moves you relative to where you are looking. By triple-pressing either your strafe left or strafe right button, you're able to aileron roll to that side by a distance of 8 blocks.
 
-Holding Z allows the player to use their scrollwheel to increase or decrease their maximum flight speed, up to a default maximum of 80 blocks per second. With the press of left-alt, one may boost up to a maximum of 100 blocks per second, or double the speed set on the user's speed control.
+Holding Z allows the player to use their scrollwheel to increase or decrease their maximum flight speed, up to a default maximum of 80 blocks per second. With the press of left-alt, one may boost up to a maximum of 100 blocks per second, or double the speed set on the user's speed control. A speed control widget will appear in the bottom-right of the player's screen:
 
 ![Flight Speed Control](../images/speed_control.png)
 
-This UI element will be recoloured depending on which ring is actively worn. The white vertical line and number stating "0.0 b/s" indicates speed desired and current speed. Additionally, the numer to the right indicates numerically what speed is set as your maximum. The bar behind the vertical line indicates the possible speeds to the left as the darker colour, along with possible boost speeds to the right, in the lighter colour. The text label present will either state "Cruise" or "Boost" to indicate whether the player is flying normally or flying under boost. Maneuvering mif-flight will slightly decrease your speed as to facilitate changing flight vector. Default values are shown in the table below:
+This UI element will be recoloured depending on which ring is actively worn. The white vertical line and number stating "0.0 b/s" indicates speed desired and current speed. Additionally, the numer to the right indicates numerically what speed is set as your maximum. The bar behind the vertical line indicates the possible speeds to the left as the darker colour, along with possible boost speeds to the right in the lighter colour. The text label present will either state "Cruise" or "Boost" to indicate whether the player is flying normally or flying under boost. Maneuvering mif-flight will slightly decrease your speed as to facilitate changing flight vector. Default values are shown in the table below:
 
-| Action | Number |
+| Flight Action | Value |
 | -------- | -------- |
 | Boost Speed Multiplier | 2.5x |
 | Cruise Cost | 2/sec |
 | Boost Cost | 5/sec |
+
+## Self Healing!
+
+Each ring has incentive to keep its bearer alive, and as such it will passively heal the bearer should they fall below maximum health. Healing will occur in any case but PvP combat, and if it takes more than one healing pulse to restore the player to full health, their healing will increase with each pulse.
+
+| Healing Action | Value |
+| -------- | -------- |
+| Healing Cost | 2/sec |
+| Healing Pulse Interval | 0.5 sec |
+| Healing Base Amount | 1hp |
+| Healing Ramp Up | 25% per pulse |
+| Max Healing With Ramp Up | 6hp |
+
+Note that Blue and White Lanterns receive increased healing values separate from normal ring healing.
+
+## Cosmetic Actions!
+
+There are three main cosmetic actions that can be taken with a ring. A suit, a mask, and an insignia may be displayed on any bearer of a ring with any amount of charge. All of these may be modified to varying extents, though only insignia upkeep has any cost.
+
+| Cosmetic Action | Value |
+| -------- | -------- |
+| Insignia Upkeep Cost | 1 |
+| Insignia Upkeep Interval | 5 sec |
+| Suit Upkeep | 0 |
+| Mask Upkeep | 0 |
