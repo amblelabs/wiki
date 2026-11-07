@@ -22,3 +22,19 @@ Every ring along the main seven colours of the emotional spectrum requires recha
 ### What costs what?
 
 There are two main types of energy consumption, instantaneous and upkeep. Most abilities that have an upkeep cost also spend an instantaneous amount to initiate the construct, while upkeep is to maintain a construct for an extended period; things like walls will cost a certain amount to maintain whilst also costing energy per block of the wall placed.
+
+## Flight!
+
+By double-pressing jump in succession, you are able to enter 3D flight, wherein WASD movement moves you relative to where you are looking. By triple-pressing either your strafe left or strafe right button, you're able to aileron roll to that side by a distance of 8 blocks.
+
+Holding Z allows the player to use their scrollwheel to increase or decrease their maximum flight speed, up to a default maximum of 80 blocks per second. With the press of left-alt, one may boost up to a maximum of 100 blocks per second, or double the speed set on the user's speed control.
+
+![Flight Speed Control](../images/speed_control.png)
+
+This UI element will be recoloured depending on which ring is actively worn. The white vertical line and number stating "0.0 b/s" indicates speed desired and current speed. Additionally, the numer to the right indicates numerically what speed is set as your maximum. The bar behind the vertical line indicates the possible speeds to the left as the darker colour, along with possible boost speeds to the right, in the lighter colour. The text label present will either state "Cruise" or "Boost" to indicate whether the player is flying normally or flying under boost. Maneuvering mif-flight will slightly decrease your speed as to facilitate changing flight vector. Default values are shown in the table below:
+
+| Action | Number |
+| -------- | -------- |
+| Boost Speed Multiplier | 2.5x |
+| Cruise Cost | 2/sec |
+| Boost Cost | 5/sec |
