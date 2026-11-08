@@ -4,7 +4,7 @@ description: The most powerful weapons in the universe
 section: Abilities
 ---
 
-All numerical values stated below are the defaults and may be changed in config.
+All numerical values stated below are the beta server's settings and may be changed in config.
 
 ## Combat abilities:
 
@@ -13,9 +13,21 @@ Blast is a variable-charge ability that deals light impact damage and high area-
 
 -- Table To Be Added --
 
+
+### Beam
+
+Beam does sustained, single-target damage over an extended period.
+
+| Beam Stat | Stat Value |
+| -------- | -------- |
+| Damage | 8.24 |
+| Range | 96 |
+| Charge Drain | 30/sec |
+| Max Duration | 7 sec |
+
 ### Swarm Missiles
 
-Swarm Missiles fires multiple homing projectiles that each do a flat damage amount per individual missile. These missiles will travel a fixed distance from the caster before disappearing. This construct is unique to Yellow and White Lanterns, with Indigo Lanterns being able to replicate it when within proximity of the aforementioned. Note that due to the nature of firing multiple projectiles at once, if more than one missile targets the same target, it is highly likely that only the damage of one missile will be applied. This is due to the nature of Minecraft: Java Edition combat invincibility frames, and is not inherently a bug within the mod itself.
+Swarm Missiles fires multiple homing projectiles that each do a flat damage amount per individual missile. These missiles will travel a fixed distance from the caster before disappearing. This ability is unique to Yellow and White Lanterns, and may be copied by nearby Indigo Lanterns. Note that due to the nature of firing multiple projectiles at once, if more than one missile targets the same target, it is highly likely that only the damage of one missile will be applied. This is due to the nature of Minecraft: Java Edition combat invincibility frames, and is not inherently a bug within the mod itself.
 
 | Swarm Missile Stat | Stat Value |
 | -------- | -------- |
@@ -106,13 +118,43 @@ Ground Slam, as the name implies, slams the user downward into the ground or nea
 
 ### Plasma Burst
 
-Plasma Burst fires a slow-moving, high damage aoe projectile that does high knockback and leaves targets burning.
+Plasma Burst fires a slow-moving, high damage aoe projectile that does high knockback and leaves targets burning. This ability is unique to Red and White Lanterns, and may be copied by nearby Indigo Lanterns.
 
 | Plasma Burst Stat | Stat Value |
-
+| -------- | -------- |
+| Maximum Damage (Direct Hit) | 22 |
+| Minimum Damage (Within Radius) | 8.8 |
+| Explosion Radius | 5 blocks |
+| Charge Cost | 250 |
+| Burn Duration | 5 sec |
+| Knockback | 1.2 |
 
 ### Crystal Prison
 
+Crystal Prison may be used to put a target in stasis, during which they cannot move, use abilities, or defend themselves in any way. The imprisoned target, however, takes 50% less damage due to their encased state. This ability is unique to Pink and White Lanterns, and may be copied by nearby Indigo Lanterns.
+
+| Crystal Prison Stat | Stat Value |
+| -------- | -------- |
+| Duration | 4 sec |
+| Range | 32 |
+| Charge Cost | 500 |
+
+### Acid Vomit
+
+Acid Vomit spews a stream of corrosive, incendiary fluid from a Red Lantern's mouth, dealing sustained damage to both the target as well as any armour they may be wearing. Due to the modified physiology of Red Lanterns, this ability is wholly unique to them, and may not be replicated by any other lantern corps through any means.
+
+| Acid Vomit Stat | Stat Value |
+| -------- | -------- |
+| Damage | 5.98 |
+| Range | 9.01 |
+| Per-piece Armour Corrosion | 2 durability/tick |
+| Charge Drain | 15/sec |
+| Burn Duration | 3 sec |
+
 ### Gravity Orb
 
+-- INFORMATION TO BE LISTED --
+
 ### Gravity Repulsor
+
+-- INFORMATION TO BE LISTED --
