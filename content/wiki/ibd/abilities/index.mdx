@@ -6,7 +6,7 @@ section: Abilities
 
 # What do all the rings do?
 
-Whilst most rings have some specialized capabilities, every ring has a handful of basic features available to any user at any time, assuming they remembered to charge it.
+Whilst most rings have some specialized capabilities, every ring has a handful of basic features available to any user at any time, assuming they remembered to charge it. Values specified below are defaults and most may be changed within the configuration.
 
 ## Charging your ring!
 
@@ -18,6 +18,8 @@ Every ring along the main seven colours of the emotional spectrum requires recha
 | Rank 2 | 73% | 3650 |
 | Rank 3 | 86% | 4300 |
 | Rank 4 | 100% | 5000 |
+
+Rings also need to be synchronized with their central battery once every 31 in-game days of playtime, or they will disable themselves as a safety lockout. After two weeks, the ring will reach 50% desync, at which point a warning will be issued in chat. If a Central Power Battery goes offline, any remaining power in the ring may be used, though new rings cannot be utilized nor can they be recharged via lantern. If a battery is only damaged partially, the battery's health percentage remaining becomes the maximum to which a ring can be recharged.
 
 ### What costs what?
 
@@ -41,17 +43,9 @@ This UI element will be recoloured depending on which ring is actively worn. The
 
 ## Self Healing!
 
-Each ring has incentive to keep its bearer alive, and as such it will passively heal the bearer should they fall below maximum health. Healing will occur in any case but PvP combat, and if it takes more than one healing pulse to restore the player to full health, their healing will increase with each pulse.
+Each ring has incentive to keep its bearer alive, and as such it will passively heal the bearer should they fall below maximum health. Healing will occur in any case considered to be "out of combat", and will regen 1hp per half second, or 10 game ticks.
 
-| Healing Action | Value |
-| -------- | -------- |
-| Healing Cost | 2/sec |
-| Healing Pulse Interval | 0.5 sec |
-| Healing Base Amount | 1hp |
-| Healing Ramp Up | 25% per pulse |
-| Max Healing With Ramp Up | 6hp |
-
-Note that Blue and White Lanterns receive increased healing values separate from normal ring healing.
+Note that Blue and White Lanterns receive increased healing values in addition to normal ring healing.
 
 ## Cosmetic Actions!
 
