@@ -11,6 +11,7 @@ export const docs = defineDocs({
     schema: pageSchema,
     postprocess: {
       includeProcessedMarkdown: true,
+      extractLinkReferences: true,
     },
   },
   meta: {
