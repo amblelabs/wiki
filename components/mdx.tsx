@@ -7,12 +7,14 @@ import { WikiGraph } from "./full-wiki-graph";
 import type { MDXComponents } from "mdx/types";
 import { GreedCalc } from "@/components/greed-calc";
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
+import { Meteors } from "@/components/ui/meteors"
 
 export function getMDXComponents(components?: MDXComponents){
   return {
     ...defaultMdxComponents,
     ...TabsComponents,
     GreedCalc,
+    Meteors,
     WikiGraph,
     Kbd,
     KbdGroup,
