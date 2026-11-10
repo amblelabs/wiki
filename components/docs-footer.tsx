@@ -8,10 +8,10 @@ export function DocsFooter() {
     <>
       <PageFooter />
       <Giscus
-        repo="amblelabs/ait-wiki"
-        repoId="R_kgDOML5FAA"
+        repo="amblelabs/wiki"
+        repoId="R_kgDOR_XZug"
         category="General"
-        categoryId="DIC_kwDOML5FAM4CgOE1"
+        categoryId="DIC_kwDOR_XZus4C6ja_"
         mapping="pathname"
         strict="0"
         reactions-enabled="1"
