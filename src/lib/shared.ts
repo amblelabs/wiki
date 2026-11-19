@@ -1,10 +1,11 @@
+// src/lib/shared.ts
 import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = 'Astro';
-export const docsRoute = '/docs';
+export const docsRoute = '/wiki';
 export const docsImageRoute = '/og/docs';
+export const docsContentRoute = '/wiki/llms.mdx';
 
-// fill this with your actual GitHub info, for example:
 export const gitConfig = {
   user: 'fuma-nama',
   repo: 'fumadocs',
@@ -18,3 +19,24 @@ export function getPageImageUrl(page: { slugs: string[]; locale?: string }) {
 
   return { segments, url: getImageUrl(segments, page.locale) };
 }
+
+export type OgMeta = {
+  short: string;
+  name: string;
+  iconType: 'png' | 'webp';
+};
+
+export const ogData = {
+  ait: {
+    short: 'ait',
+    name: 'Adventures in Time',
+    iconType: 'webp',
+  },
+  common: {
+    short: 'logo',
+    name: 'AmbleLabs',
+    iconType: 'png',
+  },
+} satisfies Record<string, OgMeta>;
+
+export const ogFallback = ogData.common;

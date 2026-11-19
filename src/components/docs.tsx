@@ -1,32 +1,36 @@
-import { type SerializedPageTree, useFumadocsLoader } from 'fumadocs-core/source/client';
+import {
+  type SerializedPageTree,
+  useFumadocsLoader,
+} from 'fumadocs-core/source/client';
 import type { TOCItemType } from 'fumadocs-core/toc';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import {
+  DocsBody,
   DocsDescription,
   DocsPage,
   DocsTitle,
   MarkdownCopyButton,
-  ViewOptionsPopover,
 } from 'fumadocs-ui/layouts/docs/page';
 import { Provider, type ProviderProps } from '@/components/provider';
 import { baseOptions } from '@/lib/layout.shared';
+import { ViewOptionsPopover } from '@/components/page-actions';
 
 export interface DocsProps extends ProviderProps {
   tree: SerializedPageTree;
   title: string;
   description?: string;
+  full?: boolean;
   toc: TOCItemType[];
   markdownUrl: string;
   githubUrl: string;
 }
 
-/**
- * The React island of docs pages, the content is passed as children.
- */
 export function Docs({
+  lang,
   tree,
   title,
   description,
+  full,
   toc,
   markdownUrl,
   githubUrl,
@@ -36,16 +40,22 @@ export function Docs({
   const data = useFumadocsLoader({ tree });
 
   return (
-    <Provider {...props}>
-      <DocsLayout {...baseOptions()} tree={data.tree}>
-        <DocsPage toc={toc}>
+    <Provider lang={lang} {...props}>
+      <DocsLayout {...baseOptions(lang)} tree={data.tree}>
+        <DocsPage
+          toc={toc}
+          full={full}
+        >
           <DocsTitle>{title}</DocsTitle>
-          <DocsDescription>{description}</DocsDescription>
-          <div className="flex flex-row gap-2 items-center border-b -mt-4 pb-6">
+          <DocsDescription className="mb-0">{description}</DocsDescription>
+          <div className="flex flex-row gap-2 items-center border-b pb-6">
             <MarkdownCopyButton markdownUrl={markdownUrl} />
-            <ViewOptionsPopover markdownUrl={markdownUrl} githubUrl={githubUrl} />
+            <ViewOptionsPopover
+              markdownUrl={markdownUrl}
+              githubUrl={githubUrl}
+            />
           </div>
-          {children}
+          <DocsBody>{children}</DocsBody>
         </DocsPage>
       </DocsLayout>
     </Provider>

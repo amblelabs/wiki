@@ -1,0 +1,57 @@
+---
+// src/pages/[...lang]/[...slug].astro
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import Layout from '@/layouts/Layout.astro';
+import { Docs } from '@/components/docs';
+import { getPageImage, getPageMarkdownUrl, source } from '@/lib/source';
+import { gitConfig, ogData, ogFallback } from '@/lib/shared';
+import { getMDXComponents } from '@/components/mdx';
+
+export const prerender = true;
+
+export const getStaticPaths = (() => {
+  return source.getPages().map((page) => ({
+    params: {
+      lang: page.locale,
+      slug: decodeURI(page.slugs.join('/')) || undefined,
+    },
+    props: { page },
+  }));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { page } = Astro.props;
+const { body: Content, toc } = await page.data.load();
+const pageTree = await source.serializePageTree(
+  source.getPageTree(page.locale),
+);
+const lang = page.locale ?? Astro.currentLocale ?? 'en-gb';
+const subtype = page.path.split('/')[0];
+const meta = ogData[subtype as keyof typeof ogData] || ogFallback;
+const pageTitle = `${page.data.title} | ${meta.name} Wiki`;
+const markdownUrl = getPageMarkdownUrl(page).url;
+---
+
+<Layout
+  lang={lang}
+  title={pageTitle}
+  description={page.data.description}
+  image={getPageImage(page).url}
+>
+  <Docs
+    client:load
+    pathname={Astro.url.pathname}
+    lang={lang}
+    params={Astro.params}
+    tree={pageTree}
+    title={page.data.title}
+    description={page.data.description}
+    full={page.data.full}
+    toc={toc}
+    markdownUrl={markdownUrl}
+    githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/wiki/${encodeURI(page.path)}`}
+  >
+    <Content/>
+  </Docs>
+</Layout>
