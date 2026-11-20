@@ -1,0 +1,10 @@
+---
+import { GraphView } from '@/components/graph-view';
+import { buildGraph } from '@/lib/build-graph';
+
+const graph = buildGraph();
+---
+
+<div>
+  <GraphView client:load graph={graph} />
+</div>
