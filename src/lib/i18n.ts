@@ -4,7 +4,7 @@ import { defineI18nUI } from 'fumadocs-ui/i18n';
 export const i18n = defineI18n({
   defaultLanguage: 'en-gb',
   fallbackLanguage:'en-gb',
-  languages: ['zh-hk', 'en-gb', 'zh-cn', 'en-us'],
+  languages: ['zh-hk', 'en-gb', 'zh-cn', 'en-us', 'ru', 'cn'],
   hideLocale: 'never',
 });
 

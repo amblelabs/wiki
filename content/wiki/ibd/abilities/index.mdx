@@ -1,0 +1,72 @@
+---
+title: Ring Abilities
+description: Any ring will do!
+section: Abilities
+---
+
+# What do all the rings do?
+
+Whilst most rings have some specialized capabilities, every ring has a handful of basic features available to any user at any time, assuming they remembered to charge it. Values specified below are defaults and most may be changed within the configuration.
+
+## Charging your ring!
+
+Every ring along the main seven colours of the emotional spectrum requires recharging at a lantern or Central Power Battery to keep functioning for extended periods. Every ring, when charged to 100% capacity, has 5000 points of charge. Abilities drain amounts of charge, rather than percentages. Each [rank](../Milestones.mdx) on a ring grants you more maximum charge, as shown in this table:
+
+| Rank | Max Recharge % | Max Recharge Value |
+| -------- | -------- | -------- |
+| Rank 1 | 60% | 3000 |
+| Rank 2 | 73% | 3650 |
+| Rank 3 | 86% | 4300 |
+| Rank 4 | 100% | 5000 |
+
+Rings also need to be synchronized with their central battery once every 31 in-game days, or about 12.4 hours of playtime, or they will disable themselves as a safety lockout. After two weeks, the ring will reach 50% desync, at which point a warning will be issued in chat. If a Central Power Battery goes offline, any remaining power in the ring may be used, though new rings cannot be utilized nor can they be recharged via lantern. If a battery is only damaged partially, the battery's health percentage remaining becomes the maximum to which a ring can be recharged.
+
+### What costs what?
+
+There are two main types of energy consumption, instantaneous and upkeep. Most abilities that have an upkeep cost also spend an instantaneous amount to initiate the construct, while upkeep is to maintain a construct for an extended period; things like walls will cost a certain amount to maintain whilst also costing energy per block of the wall placed.
+
+## Flight!
+
+By double-pressing jump in succession, you are able to enter 3D flight, wherein WASD movement moves you relative to where you are looking. By triple-pressing either your strafe left or strafe right button, you're able to aileron roll to that side by a distance of 8 blocks.
+
+Holding Z allows the player to use their scrollwheel to increase or decrease their maximum flight speed, up to a default maximum of 80 blocks per second. With the press of left-alt, one may boost up to a maximum of 100 blocks per second, or double the speed set on the user's speed control. A speed control widget will appear in the bottom-right of the player's screen:
+
+![Flight Speed Control](/images/speed-control.png)
+
+This UI element will be recoloured depending on which ring is actively worn. The white vertical line and number stating "0.0 b/s" indicates speed desired and current speed. Additionally, the numer to the right indicates numerically what speed is set as your maximum. The bar behind the vertical line indicates the possible speeds to the left as the darker colour, along with possible boost speeds to the right in the lighter colour. The text label present will either state "Cruise" or "Boost" to indicate whether the player is flying normally or flying under boost. Maneuvering mif-flight will slightly decrease your speed as to facilitate changing flight vector. Default values are shown in the table below:
+
+| Flight Action | Value |
+| -------- | -------- |
+| Boost Speed Multiplier | 2.5x |
+| Cruise Cost | 2/sec |
+| Boost Cost | 5/sec |
+
+## Self Healing!
+
+Each ring has incentive to keep its bearer alive, and as such it will passively heal the bearer should they fall below maximum health. Healing will occur in any case considered to be "out of combat", and will regen 1hp per half second, or 10 game ticks.
+
+Note that Blue and White Lanterns receive increased healing values in addition to normal ring healing.
+
+## Cosmetic Actions!
+
+There are three main cosmetic actions that can be taken with a ring. A suit, a mask, and an insignia may be displayed on any bearer of a ring with any amount of charge. All of these may be modified to varying extents, though only insignia upkeep has any cost.
+
+| Cosmetic Action | Value |
+| -------- | -------- |
+| Insignia Upkeep Cost | 1 |
+| Insignia Upkeep Interval | 5 sec |
+| Suit Upkeep | 0 |
+| Mask Upkeep | 0 |
+
+## Passive Armour!
+
+Each ring provides armour values to the wearer that scales based on [milestone](../Milestones.mdx) rank.
+
+| Ring Rank | Armour Value |
+| -------- | -------- |
+| Rank 1 | 4 |
+| Rank 2 | 8 |
+| Rank 3 | 16 |
+| Rank 4 | 20 |
+
+The maximum level of armour attainable through a ring is equivalent to unenchanted diamond armour, which does mean it is not only possible but also very doable for strong enemies or cunning players to defeat a ring-bearer in combat. The rings do not provide any armour toughness value and as such, corrosive or otherwise piercing attacks are notably more effective than alternatives.

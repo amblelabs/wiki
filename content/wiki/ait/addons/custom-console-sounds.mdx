@@ -1,0 +1,89 @@
+---
+title: Custom Console Sounds
+description: ''
+section: addons
+---
+
+## Datapack
+
+1. Create a new `.json` file in the path below.
+
+`data/namespace/control_sounds/console_name/console_control_name.json`
+
+2. Inside this new `.json` file, type the following:
+
+```plain
+{
+ "control": "name:of_control",
+ "console": "ait:console/console_name",
+ "success_sound": "sound:id",
+ "alt_sound": "sound:id_alt"
+}
+```
+
+- Replace the `name:of_control` with one of the many console controls we have.
+- Replace `console_name` with any listed below.
+- Replace `sound:id` and `sound:id_alt` with the sounds id that matches what it is in-game (using the `/playsound` command)
+
+If you don't know how to add a custom sound to Minecraft, follow [THIS VIDEO](https://www.youtube.com/watch?v=igZQdEoxcQk) !
+
+example:
+
+```plain
+{
+  "control": "ait:alarms",
+  "console": "ait:console/copper",
+  "success_sound": "ait:controls/copper_alarm",
+  "alt_sound": "ait:controls/copper_alarm_alt"
+} 
+```
+
+#### Different Console Types
+
+-     hartnell
+-     coral
+-     copper
+-     toyota
+-     alnico
+-     steam
+-     crystaline
+-     renaissance
+-     hudolin
+
+#### Here is a list of ALL control names in ait (as of 1.2.12)
+
+-     ait:electrical_discharge
+-     ait:shields
+-     ait:sonic_port
+-     ait:load_waypoint
+-     ait:engine_overload
+-     ait:visualiser
+-     ait:save_waypoint
+-     ait:console_port
+-     ait:power
+-     ait:alarms
+-     ait:refueler
+-     ait:dimension
+-     ait:protocol_1913
+-     ait:protocol_3
+-     ait:protocol_813
+-     ait:protocol_19
+-     ait:direction
+-     ait:randomiser
+-     ait:z
+-     ait:y
+-     ait:x
+-     ait:increment
+-     ait:land_type
+-     ait:telepathic_circuit
+-     ait:monitor
+-     ait:antigravs
+-     ait:door_lock
+-     ait:door_control
+-     ait:fast_return
+-     ait:throttle
+-     ait:handbrake
+-     ait:protocol_116
+-     ait:direction
+-     ait:hammer_hanger
+-     ait:refreshment_control
