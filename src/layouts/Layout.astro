@@ -2,6 +2,7 @@
 import '@/styles/global.css';
 import { ClientRouter } from 'astro:transitions';
 import { i18n } from '@/lib/i18n';
+import favicon from '../../public/wiki/favicon.svg'
 
 interface Props {
   lang?: string;
@@ -26,6 +27,7 @@ const ogImageUrl = image
     <meta property="og:title" content={title} />
     {description && <meta property="og:description" content={description} />}
     {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <link rel="icon" type="image/png" href={favicon.src} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

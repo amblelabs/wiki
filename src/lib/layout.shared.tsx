@@ -56,7 +56,7 @@ export function baseOptions(locale: string): BaseLayoutProps {
           <span className="font-medium">{appName}</span>
         </>
       ),
-     url: `${docsRoute}/${locale}`,
+     url: `${docsRoute}/${locale}`.replace(/^\/+/, '/'),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
   };

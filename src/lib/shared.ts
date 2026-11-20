@@ -2,7 +2,7 @@
 import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = "AmbleLabs Wiki";
-export const docsRoute = "/";
+export const docsRoute = "/wiki";
 export const docsImageRoute = "/wiki/og";
 export const docsContentRoute = "/wiki/llms.mdx";
 export const ogColor = "#ad5602";
