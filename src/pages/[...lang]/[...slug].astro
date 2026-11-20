@@ -1,12 +1,10 @@
 ---
-// src/pages/[...lang]/[...slug].astro
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import Layout from '@/layouts/Layout.astro';
 import { Docs } from '@/components/docs';
 import { getPageImage, getPageMarkdownUrl, source } from '@/lib/source';
 import { gitConfig, ogData, ogFallback } from '@/lib/shared';
-import { getMDXComponents } from '@/components/mdx';
-
+import DocImage from "@/components/doc-image.astro"
 export const prerender = true;
 
 export const getStaticPaths = (() => {
@@ -41,6 +39,7 @@ const markdownUrl = getPageMarkdownUrl(page).url;
 >
   <Docs
     client:load
+    transition:persist
     pathname={Astro.url.pathname}
     lang={lang}
     params={Astro.params}
@@ -52,6 +51,6 @@ const markdownUrl = getPageMarkdownUrl(page).url;
     markdownUrl={markdownUrl}
     githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/wiki/${encodeURI(page.path)}`}
   >
-    <Content/>
+    <Content components={{ img: DocImage }}/>
   </Docs>
 </Layout>
