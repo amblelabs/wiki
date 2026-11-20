@@ -2,7 +2,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { appName, gitConfig } from "./shared";
 import { docsRoute } from "./shared";
 
-import Logo from "../../public/logo.png";
+import Logo from "../assets/images/logo.png";
 import { defineI18nUI } from "fumadocs-ui/i18n";
 import { i18n } from "./i18n";
 

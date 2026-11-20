@@ -1,49 +1,34 @@
-import type { APIRoute, GetStaticPaths } from 'astro';
+import type { APIRoute, GetStaticPaths, InferGetStaticPropsType } from 'astro';
 import { ImageResponse } from '@takumi-rs/image-response';
-import { getPageImage, source } from '@/lib/source';
-import { appName } from '@/lib/shared';
+import { source } from '@/lib/source';
 import {
+  appName,
   ogBackgroundColor,
   ogColor,
-  ogData,
-  ogFallback,
   ogTextColor,
-} from '@/lib/server'; // or '@/lib/shared' if ogData lives there
+} from '@/lib/shared';
+import { serverOgData, serverOgFallback } from '@/lib/og.server';
 import DocsTemplate from '@/components/takumi/docs-template';
 
 export const prerender = true;
 
-interface OgRouteProps {
-  slugs: string[];
-  locale: string;
-}
-
-export const getStaticPaths: GetStaticPaths = () => {
+export const getStaticPaths = (() => {
   return source.getPages().map((page) => ({
     params: {
-      // Astro rest params expect a '/'-joined string rather than string[]
-      slug: getPageImage(page).segments.join('/'),
+      slug: [page.locale, ...page.slugs, 'image.webp'].filter(Boolean).join('/'),
     },
-    props: {
-      slugs: page.slugs,
-      locale: page.locale,
-    } satisfies OgRouteProps,
+    props: { page },
   }));
-};
+}) satisfies GetStaticPaths;
 
-export const GET: APIRoute = async ({ props }) => {
-  const { slugs, locale } = props as OgRouteProps;
-  const page = source.getPage(slugs, locale);
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
-  if (!page) {
-    return new Response('Not Found', { status: 404 });
-  }
+export const GET: APIRoute<Props> = async ({ props }) => {
+  const { page } = props;
 
-  const rawPath =
-    (page.data as { info?: { path?: string } }).info?.path ??
-    page.slugs.join('/');
-  const subtype = rawPath.split('/')[0];
-  const meta = ogData[subtype as keyof typeof ogData] || ogFallback;
+  const subtype = page.path.split('/')[0];
+  const meta =
+    serverOgData[subtype as keyof typeof serverOgData] || serverOgFallback;
 
   return new ImageResponse(
     <DocsTemplate
@@ -58,16 +43,17 @@ export const GET: APIRoute = async ({ props }) => {
         <img
           alt="AmbleLabs"
           src="logo"
-          sizes="100px"
-          tw="w-32 h-32 rounded-lg"
+          width={128}
+          height={128}
+          style={{ width: 128, height: 128, borderRadius: 8 }}
         />
       }
     />,
     {
       width: 1200,
       height: 630,
-      format: 'png',
-      persistentImages: [
+      format: 'webp',
+      images: [
         {
           src: 'logo',
           data: meta.data,

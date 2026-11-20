@@ -55,11 +55,12 @@ ${await page.data.getText('processed')}`,
 });
 
 export function getPageImage(page: InferPageType<typeof source>) {
-  const segments = [...page.slugs, "image.webp"];
-
+  const locale = page.locale ?? i18n.defaultLanguage;
+  const segments = [locale, ...page.slugs, 'image.png'];
+  
   return {
     segments,
-    url: `${docsImageRoute}/${segments.join("/")}`,
+    url: `/wiki/og/${segments.join('/')}`,
   };
 }
 
