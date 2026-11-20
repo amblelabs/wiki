@@ -2,7 +2,7 @@ import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 import { appName, gitConfig } from "./shared";
 import { docsRoute } from "./shared";
 
-import Logo from "../assets/images/logo.png";
+import Logo from "../assets/images/logo.png?url";
 import { defineI18nUI } from "fumadocs-ui/i18n";
 import { i18n } from "./i18n";
 
@@ -10,7 +10,7 @@ export const logo = (
   <>
     <img
       alt="AmbleLabs"
-      src={Logo.src}
+      src={Logo}
       sizes="100px"
       className="size-8 rounded"
       aria-label="AmbleLabs"
