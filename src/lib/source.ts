@@ -5,9 +5,9 @@ import { docsRoute, docsImageRoute, docsContentRoute } from './shared';
 import { createElement } from "react";
 import { icons } from "lucide-react";
 import { i18n } from '@/lib/i18n'
-import AitIcon from "../../public/ait.webp";
-import K9Icon from "../../public/k9.webp";
-import IbdIcon from "../../public/ibd.webp";
+import AitIcon from "@/assets/images/ait.webp";
+import K9Icon from "@/assets/images/k9.webp";
+import IbdIcon from "@/assets/images/ibd.webp";
 
 export const source = loader({
   source: toFumadocsSource(await getCollection('docs'), await getCollection('meta')),

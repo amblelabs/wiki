@@ -9,7 +9,7 @@ export type OgData = OgMeta & {
 async function loadOg(meta: OgMeta): Promise<OgData> {
   return {
     ...meta,
-    data: await readFile(`./public/${meta.short}.${meta.iconType}`),
+    data: await readFile(`./src/assets/images/${meta.short}.${meta.iconType}`),
   };
 }
 
