@@ -1,10 +1,13 @@
 // src/lib/shared.ts
 import { createGetUrl } from 'fumadocs-core/source';
 
-export const appName = 'Astro';
-export const docsRoute = '/wiki';
-export const docsImageRoute = '/og/docs';
-export const docsContentRoute = '/wiki/llms.mdx';
+export const appName = "AmbleLabs Wiki";
+export const docsRoute = "/";
+export const docsImageRoute = "/wiki/og";
+export const docsContentRoute = "/wiki/llms.mdx";
+export const ogColor = "#ad5602";
+export const ogBackgroundColor = "#452201";
+export const ogTextColor = "#e67300";
 
 export const gitConfig = {
   user: 'fuma-nama',

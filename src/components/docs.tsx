@@ -14,6 +14,7 @@ import {
 import { Provider, type ProviderProps } from '@/components/provider';
 import { baseOptions } from '@/lib/layout.shared';
 import { ViewOptionsPopover } from '@/components/page-actions';
+import { i18n } from '@/lib/i18n';
 
 export interface DocsProps extends ProviderProps {
   tree: SerializedPageTree;
@@ -38,14 +39,12 @@ export function Docs({
   ...props
 }: DocsProps) {
   const data = useFumadocsLoader({ tree });
+  const activeLang = lang ?? props.params.lang ?? i18n.defaultLanguage;
 
   return (
-    <Provider lang={lang} {...props}>
-      <DocsLayout {...baseOptions(lang)} tree={data.tree}>
-        <DocsPage
-          toc={toc}
-          full={full}
-        >
+    <Provider lang={activeLang} {...props}>
+      <DocsLayout {...baseOptions(activeLang)} tree={data.tree}>
+        <DocsPage toc={toc} full={full}>
           <DocsTitle>{title}</DocsTitle>
           <DocsDescription className="mb-0">{description}</DocsDescription>
           <div className="flex flex-row gap-2 items-center border-b pb-6">
@@ -55,7 +54,7 @@ export function Docs({
               githubUrl={githubUrl}
             />
           </div>
-          <DocsBody>{children}</DocsBody>
+          {children}
         </DocsPage>
       </DocsLayout>
     </Provider>

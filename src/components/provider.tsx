@@ -4,10 +4,10 @@ import type { ReactNode } from 'react';
 import { RootProvider } from 'fumadocs-ui/provider/astro';
 import { i18nProvider } from 'fumadocs-ui/i18n';
 import SearchDialog from '@/components/search';
-import { translations } from '@/lib/layout.shared';
+import { i18n, translations } from '@/lib/i18n';
 
 export interface ProviderProps {
-  lang: string;
+  lang?: string;
   pathname: string;
   params: Record<string, string | undefined>;
   children?: ReactNode;
@@ -35,13 +35,14 @@ function withBase(path: string) {
 }
 
 export function Provider({ lang, pathname, params, children }: ProviderProps) {
+  const activeLang = lang ?? params.lang ?? i18n.defaultLanguage;
   return (
     <RootProvider
       pathname={stripBase(pathname)}
       params={params}
       navigate={(url) => astroNavigate(withBase(url))}
       search={{ SearchDialog }}
-      i18n={i18nProvider(translations, lang)}
+      i18n={i18nProvider(translations, activeLang)}
     >
       {children}
     </RootProvider>

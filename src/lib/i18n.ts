@@ -1,5 +1,5 @@
 import { defineI18n } from 'fumadocs-core/i18n';
-import { defineI18nUI } from 'fumadocs-ui/i18n';
+import { defineI18nUI, uiTranslations } from 'fumadocs-ui/i18n';
 
 export const i18n = defineI18n({
   defaultLanguage: 'en-gb',
@@ -22,3 +22,13 @@ export const { provider } = defineI18nUI(i18n, {
     displayName: '简体中文',
   },
 });
+
+export const translations = i18n
+  .translations()
+  .extend(uiTranslations())
+  .add({
+    'en-gb': { displayName: 'English (UK)' },
+    'en-us': { displayName: 'English (US)' },
+    'zh-hk': { displayName: '繁體中文（香港）' },
+    'zh-cn': { displayName: '简体中文' },
+  });

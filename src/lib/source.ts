@@ -5,16 +5,43 @@ import { docsRoute, docsImageRoute, docsContentRoute } from './shared';
 import { createElement } from "react";
 import { icons } from "lucide-react";
 import { i18n } from '@/lib/i18n'
+import AitIcon from "../../public/ait.webp";
+import K9Icon from "../../public/k9.webp";
+import IbdIcon from "../../public/ibd.webp";
 
 export const source = loader({
   source: toFumadocsSource(await getCollection('docs'), await getCollection('meta')),
   url(slugs, locale) {
-      return [docsRoute, locale, ...slugs].filter(Boolean).join('/');
+      return ['wiki', locale, ...slugs].filter(Boolean).join('/');
   },
   baseUrl: docsRoute,
   i18n,
   icon: (icon) => {
-      if (!icon) return;
+    if (!icon) return;
+    if (icon === "ait") {
+         return createElement("img", {
+           src: AitIcon.src,
+           alt: "AIT Icon",
+           className: "rounded",
+         });
+       }
+   
+       if (icon === "k9") {  // Add this block
+         return createElement("img", {
+           src: K9Icon.src,
+           alt: "K9 Icon",
+           className: "rounded",
+         });
+       }
+   
+       if (icon === "ibd") {
+         return createElement("img", {
+           src: IbdIcon.src,
+           alt: "IBD Icon",
+           className: "rounded",
+         });
+       }
+
       return createElement(
         icons[icon as keyof typeof icons] || icons.BadgeQuestionMark,
       );
