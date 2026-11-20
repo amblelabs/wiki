@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getMDXComponents } from '@/components/mdx';
 import { getImage } from 'astro:assets';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import Logo from '@/assets/images/logo.png';
@@ -62,6 +63,6 @@ const markdownUrl = getPageMarkdownUrl(page).url;
     markdownUrl={markdownUrl}
     githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/wiki/${encodeURI(page.path)}`}
   >
-    <Content components={{ img: DocImage, a: createRelativeLink(source, page) }}/>
+    <Content components={{ ...getMDXComponents(undefined, page), img: DocImage }} />
   </Docs>
 </Layout>

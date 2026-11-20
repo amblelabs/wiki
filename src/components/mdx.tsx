@@ -11,27 +11,36 @@ import { GreedCalc } from "@/components/greed-calc";
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { Meteors } from "@/components/ui/meteors"
 
-function WikiLink({ href = '', ...props }: ComponentProps<'a'>) {
-  const pathname = usePathname();
-  const isRelative =
-    href &&
-    !href.startsWith('/') &&
-    !href.startsWith('#') &&
-    !/^[a-z][a-z\d+.-]*:/i.test(href);
-
-  let resolvedHref = href;
-  if (isRelative) {
-    const base = pathname.replace(/\/$/, '') || '/';
-    const url = new URL(href, `http://n${base}`);
-    resolvedHref = `${url.pathname}${url.search}${url.hash}`;
-  }
-
-  return <defaultMdxComponents.a href={resolvedHref} {...props} />;
+interface PageLinkContext {
+  url: string;
+  path: string;
 }
 
-export function getMDXComponents(components?: MDXComponents) {
+export function getMDXComponents(components?: MDXComponents, page?: PageLinkContext) {
+  const isIndex = /(^|\/)index\.mdx?$/i.test(page?.path ?? '');
+  
+    function WikiLink({ href = '', ...props }: ComponentProps<'a'>) {
+      const isRelative =
+        href &&
+        !href.startsWith('/') &&
+        !href.startsWith('#') &&
+        !/^[a-z][a-z\d+.-]*:/i.test(href);
+  
+      let resolvedHref = href;
+      if (isRelative && page?.url) {
+        const cleanHref = href.replace(/\.mdx?(?=[?#]|$)/i, '');
+        const cleanPath = page.url.replace(/\/$/, '') || '/';
+        const base = isIndex && cleanPath !== '/' ? `${cleanPath}/` : cleanPath;
+        const url = new URL(cleanHref, `http://n${base}`);
+        resolvedHref = `${url.pathname}${url.search}${url.hash}`;
+      }
+  
+      return <defaultMdxComponents.a href={resolvedHref} {...props} />;
+    }
+  
   return {
     ...defaultMdxComponents,
+    a: WikiLink,
     ...TabsComponents,
     GreedCalc,
     Meteors,
@@ -42,7 +51,6 @@ export function getMDXComponents(components?: MDXComponents) {
     Steps,
     Accordion,
     Accordions,
-    a: WikiLink,
     ...components,
   } satisfies MDXComponents;
 }
