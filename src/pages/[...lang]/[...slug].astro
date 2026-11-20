@@ -1,11 +1,20 @@
 ---
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro';
+import { getImage } from 'astro:assets';
+import Logo from '@/assets/images/logo.png';
 import Layout from '@/layouts/Layout.astro';
 import { Docs } from '@/components/docs';
 import { getPageImage, getPageMarkdownUrl, source } from '@/lib/source';
 import { gitConfig, ogData, ogFallback } from '@/lib/shared';
 import DocImage from "@/components/doc-image.astro"
 export const prerender = true;
+
+const optimizedLogo = await getImage({
+  src: Logo,
+  width: 64,
+  height: 64,
+  format: 'webp',
+});
 
 export const getStaticPaths = (() => {
   return source.getPages().map((page) => ({
@@ -41,6 +50,7 @@ const markdownUrl = getPageMarkdownUrl(page).url;
     client:load
     transition:persist
     pathname={Astro.url.pathname}
+    logoSrc={optimizedLogo.src}
     lang={lang}
     params={Astro.params}
     tree={pageTree}

@@ -20,6 +20,7 @@ export interface DocsProps extends ProviderProps {
   tree: SerializedPageTree;
   title: string;
   description?: string;
+  logoSrc: string;
   full?: boolean;
   toc: TOCItemType[];
   markdownUrl: string;
@@ -31,6 +32,7 @@ export function Docs({
   tree,
   title,
   description,
+  logoSrc,
   full,
   toc,
   markdownUrl,
@@ -43,7 +45,7 @@ export function Docs({
 
   return (
     <Provider lang={activeLang} {...props}>
-      <DocsLayout {...baseOptions(activeLang)} tree={data.tree}>
+      <DocsLayout {...baseOptions(activeLang, logoSrc)} tree={data.tree}>
         <DocsPage toc={toc} full={full}>
           <DocsTitle>{title}</DocsTitle>
           <DocsDescription className="mb-0">{description}</DocsDescription>

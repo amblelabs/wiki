@@ -1,22 +1,23 @@
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
-import { appName, gitConfig } from "./shared";
-import { docsRoute } from "./shared";
+import { appName, gitConfig, docsRoute} from "./shared";
 
-import Logo from "../assets/images/logo.png?url";
 import { defineI18nUI } from "fumadocs-ui/i18n";
 import { i18n } from "./i18n";
 
-export const logo = (
-  <>
+const base = docsRoute.replace(/\/$/, "");
+
+export function Logo({ src }: { src: string }) {
+  return (
     <img
       alt="AmbleLabs"
-      src={Logo}
-      sizes="100px"
+      src={src}
+      width={32}
+      height={32}
       className="size-8 rounded"
       aria-label="AmbleLabs"
     />
-  </>
-);
+  );
+}
 
 export const i18nUI = defineI18nUI(i18n, {
   "en-gb": {
@@ -47,12 +48,12 @@ export const i18nUI = defineI18nUI(i18n, {
   },
 });
 
-export function baseOptions(locale: string): BaseLayoutProps {
+export function baseOptions(locale: string, logoSrc=''): BaseLayoutProps {
   return {
     nav: {
       title: (
         <>
-          {logo}
+          {logoSrc && <Logo src={logoSrc} />}
           <span className="font-medium">{appName}</span>
         </>
       ),
