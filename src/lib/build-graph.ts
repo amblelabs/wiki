@@ -13,8 +13,13 @@ export function buildGraph(): Graph {
       description: page.data.description,
     });
 
-    const { extractedReferences = [] } = page.data;
-    for (const ref of extractedReferences) {
+    const refs =
+      'extractedReferences' in page.data &&
+      Array.isArray(page.data.extractedReferences)
+        ? (page.data.extractedReferences as { href: string }[])
+        : [];
+
+    for (const ref of refs) {
       const refPage = source.getPageByHref(ref.href);
       if (!refPage) continue;
 

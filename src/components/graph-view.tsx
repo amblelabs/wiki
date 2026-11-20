@@ -1,5 +1,14 @@
 'use client';
-import { lazy, type RefObject, useEffect, useMemo, useRef, useState } from 'react';
+// src/components/graph-view.tsx
+import {
+  lazy,
+  type RefObject,
+  Suspense,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type {
   ForceGraphMethods,
   ForceGraphProps,
@@ -7,7 +16,10 @@ import type {
   NodeObject,
 } from 'react-force-graph-2d';
 import { forceCollide, forceLink, forceManyBody } from 'd3-force';
-import { useRouter } from 'fumadocs-core/framework';
+import {
+  navigate,
+  transitionEnabledOnThisPage,
+} from 'astro:transitions/client';
 
 export interface Graph {
   links: Link[];
@@ -46,7 +58,9 @@ export function GraphView(props: GraphViewProps) {
       ref={ref}
       className="relative border h-[600px] [&_canvas]:size-full rounded-xl overflow-hidden bg-fd-background"
     >
-      {mount && <ClientOnly {...props} containerRef={ref} />}
+      <Suspense fallback={null}>
+        {mount && <ClientOnly {...props} containerRef={ref} />}
+      </Suspense>
     </div>
   );
 }
@@ -57,7 +71,6 @@ function ClientOnly({
 }: GraphViewProps & { containerRef: RefObject<HTMLDivElement | null> }) {
   const graphRef = useRef<ForceGraphMethods<Node, Link> | undefined>(undefined);
   const hoveredRef = useRef<Node | null>(null);
-  const router = useRouter();
   const [tooltip, setTooltip] = useState<{
     x: number;
     y: number;
@@ -165,8 +178,12 @@ function ClientOnly({
         linkColor={linkColor}
         onNodeHover={handleNodeHover}
         onNodeClick={(node) => {
-          router.push(node.url);
-        }}
+                  if (transitionEnabledOnThisPage()) {
+                    navigate(node.url);
+                  } else {
+                    window.location.assign(node.url);
+                  }
+                }}
         linkWidth={2}
         enableNodeDrag
         enableZoomInteraction

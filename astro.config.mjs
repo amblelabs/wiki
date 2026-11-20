@@ -14,21 +14,32 @@ export default defineConfig({
         docs:{dir:'content/wiki'},
       },
     }),
+    {
+          name: 'fumadocs-base-virtual-id',
+          hooks: {
+            'astro:server:setup'({ server }) {
+              /** @type {import('vite').Connect.NextHandleFunction} */
+              const rewrite = (req, _res, next) => {
+                if (req.url?.startsWith('/@id/virtual:fumadocs/')) {
+                  req.url = `/wiki${req.url}`;
+                }
+                next();
+              };
+    
+              server.middlewares.stack.unshift({ route: '', handle: rewrite });
+              server.httpServer?.once('listening', () => {
+                server.middlewares.stack = server.middlewares.stack.filter(
+                  (layer) => layer.handle !== rewrite,
+                );
+                server.middlewares.stack.unshift({ route: '', handle: rewrite });
+              });
+            },
+          },
+        },
   ],
   vite: {
     plugins: [
       tailwindcss(),
-      {
-        name: 'fumadocs-base-virtual-id',
-            configureServer(server) {
-              server.middlewares.use((req, _res, next) => {
-                if (req.url?.startsWith('/@id/virtual:fumadocs/')) {
-                  req.url = `/wiki${req.url}`;
-                }
-              next();
-          });
-        },
-      },
     ],
   },
   i18n: {

@@ -5,7 +5,7 @@ import { Provider, type ProviderProps } from '@/components/provider';
 import { Kbd, KbdGroup } from "@/components/ui/kbd"
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import * as TabsComponents from 'fumadocs-ui/components/tabs';
-import WikiGraph from "@/components/full-wiki-graph.astro";
+import {WikiGraph} from "@/components/full-wiki-graph";
 import { GreedCalc } from "@/components/greed-calc";
 import { Accordion, Accordions } from 'fumadocs-ui/components/accordion';
 import { Meteors } from "@/components/ui/meteors"
