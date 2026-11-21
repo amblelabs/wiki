@@ -15,13 +15,6 @@ export interface ProviderProps {
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, ''); // '/wiki'
 
-function stripBase(path: string) {
-  if (base && (path === base || path.startsWith(`${base}/`))) {
-    return path.slice(base.length) || '/';
-  }
-  return path;
-}
-
 function withBase(path: string) {
   if (
     !base ||
@@ -34,13 +27,18 @@ function withBase(path: string) {
   return `${base}${path}`;
 }
 
+function normalizePath(path: string) {
+  const withSlash = path.startsWith('/') ? path : `/${path}`;
+  return withSlash.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+}
+
 export function Provider({ lang, pathname, params, children }: ProviderProps) {
   const activeLang = lang ?? params.lang ?? i18n.defaultLanguage;
   return (
     <RootProvider
-      pathname={stripBase(pathname)}
+      pathname={normalizePath(pathname)}
       params={params}
-      navigate={(url) => astroNavigate(withBase(url))}
+      navigate={(url) => astroNavigate(withBase(normalizePath(url)))}
       search={{ SearchDialog }}
       i18n={i18nProvider(translations, activeLang)}
     >

@@ -13,7 +13,6 @@ export function GreedCalc(): React.JSX.Element {
   const [netherIng, setNetherIng] = useState<number>(0);
   const [netherBlk, setNetherBlk] = useState<number>(0);
   const [egg, setEgg] = useState<number>(0);
-  // Perform your math logic here
   const total: number = goldIng + goldBlk * 9 + emerald * 2 + emeraldBlk * 18 + diamond * 4 + diamondBlk * 36 + debris * 8 + netherIng * 36 + netherBlk * 324 + egg * 2048 || 0;
 
   return (

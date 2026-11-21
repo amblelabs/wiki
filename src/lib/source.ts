@@ -12,7 +12,7 @@ import IbdIcon from "@/assets/images/ibd.webp";
 export const source = loader({
   source: toFumadocsSource(await getCollection('docs'), await getCollection('meta')),
   url(slugs, locale) {
-      return ['wiki', locale, ...slugs].filter(Boolean).join('/');
+     return `/${['wiki', locale, ...slugs].filter(Boolean).join('/')}`;
   },
   baseUrl: docsRoute,
   i18n,

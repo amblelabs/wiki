@@ -50,8 +50,7 @@ const markdownUrl = getPageMarkdownUrl(page).url;
 >
   <Docs
     client:load
-    transition:persist
-    pathname={Astro.url.pathname}
+    pathname={page.url}
     logoSrc={optimizedLogo.src}
     lang={lang}
     params={Astro.params}

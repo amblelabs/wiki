@@ -3,11 +3,12 @@ import type { ImageMetadata } from 'astro';
 import { Image } from 'astro:assets';
 
 interface Props {
-  src: string | ImageMetadata;
+  src?: string | ImageMetadata;
   alt?: string;
+  [key: string]: any;
 }
 
-const { src, alt = '' } = Astro.props;
+const { src, alt = '', ...rest } = Astro.props;
 
 // Dynamically load all images from src/assets/images
 const images = import.meta.glob<{ default: ImageMetadata }>(
@@ -17,15 +18,15 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 const isMetadata = typeof src === 'object' && src !== null;
 
 const assetPath =
-  !isMetadata && src.startsWith('/images/')
+  typeof src === 'string' && src.startsWith('/images/')
     ? `/src/assets${src}`
     : null;
 ---
 
 {isMetadata ? (
-  <Image src={src} alt={alt} />
+  <Image src={src} alt={alt} {...rest} />
 ) : assetPath && images[assetPath] ? (
-  <Image src={images[assetPath]()} alt={alt} />
+  <Image src={images[assetPath]()} alt={alt} {...rest} />
 ) : (
-  <img src={src} alt={alt} loading="lazy" />
+  <img src={src} alt={alt} loading="lazy" {...rest} />
 )}

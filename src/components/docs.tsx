@@ -5,7 +5,6 @@ import {
 import type { TOCItemType } from 'fumadocs-core/toc';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import {
-  DocsBody,
   DocsDescription,
   DocsPage,
   DocsTitle,
@@ -15,6 +14,7 @@ import { Provider, type ProviderProps } from '@/components/provider';
 import { baseOptions } from '@/lib/layout.shared';
 import { ViewOptionsPopover } from '@/components/page-actions';
 import { i18n } from '@/lib/i18n';
+import { DocsFooter } from './docs-footer';
 
 export interface DocsProps extends ProviderProps {
   tree: SerializedPageTree;
@@ -29,6 +29,7 @@ export interface DocsProps extends ProviderProps {
 
 export function Docs({
   lang,
+  pathname,
   tree,
   title,
   description,
@@ -44,11 +45,21 @@ export function Docs({
   const activeLang = lang ?? props.params.lang ?? i18n.defaultLanguage;
 
   return (
-    <Provider lang={activeLang} {...props}>
+    <Provider lang={activeLang} pathname={pathname} {...props}>
       <DocsLayout {...baseOptions(activeLang, logoSrc)} tree={data.tree}>
-        <DocsPage toc={toc} full={full}>
+        <DocsPage
+          toc={toc}
+          full={full}
+          breadcrumb={{ enabled: true }}
+          footer={{ enabled: true }}
+          slots={{
+                  footer: DocsFooter,
+                }}
+        >
           <DocsTitle>{title}</DocsTitle>
-          <DocsDescription className="mb-0">{description}</DocsDescription>
+          {description && (
+            <DocsDescription className="mb-0">{description}</DocsDescription>
+          )}
           <div className="flex flex-row gap-2 items-center border-b pb-6">
             <MarkdownCopyButton markdownUrl={markdownUrl} />
             <ViewOptionsPopover

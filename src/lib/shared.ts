@@ -10,8 +10,8 @@ export const ogBackgroundColor = "#452201";
 export const ogTextColor = "#e67300";
 
 export const gitConfig = {
-  user: 'fuma-nama',
-  repo: 'fumadocs',
+  user: 'vmbbi',
+  repo: 'wiki',
   branch: 'main',
 };
 
