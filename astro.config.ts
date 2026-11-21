@@ -1,5 +1,4 @@
 // @ts-check
-import type { IncomingMessage, ServerResponse } from 'node:http';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import fumadocs from '@fumadocs/astro';
@@ -23,22 +22,6 @@ export default defineConfig({
   vite: {
     plugins: [
       tailwindcss(),
-      {
-              name: 'fumadocs-island-base-rewrite',
-              configureServer(server) {
-                server.middlewares.stack.unshift({
-                  route: '',
-                  handle(req: IncomingMessage,
-                         _res: ServerResponse,
-                        next: (err?: unknown) => void,) {
-                    if (req.url?.startsWith('/@id/virtual:fumadocs')) {
-                      req.url = `/wiki${req.url}`;
-                    }
-                    next();
-                  },
-                });
-              },
-            },
     ],
   },
   i18n: {
