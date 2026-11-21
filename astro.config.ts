@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import fumadocs from '@fumadocs/astro';
 
 export default defineConfig({
-  site: 'https://vmbbi.github.io',
+  site: 'https://amblelabs.dev',
   base: '/wiki',
   build: {
       format: 'file',

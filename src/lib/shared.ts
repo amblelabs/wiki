@@ -9,7 +9,7 @@ export const ogBackgroundColor = "#452201";
 export const ogTextColor = "#e67300";
 
 export const gitConfig = {
-  user: 'vmbbi',
+  user: 'amblelabs',
   repo: 'wiki',
   branch: 'main',
 };

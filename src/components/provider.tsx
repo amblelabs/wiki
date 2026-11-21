@@ -43,7 +43,7 @@ export function Provider({ lang, pathname, params, children }: ProviderProps) {
   const baseI18n = i18nProvider(translations, activeLang);
   return (
     <RootProvider
-      pathname={appPath}
+      pathname={normalizePath(pathname)}
       params={params}
       navigate={(url) => astroNavigate(withBase(url))}
       search={{ SearchDialog }}
@@ -52,20 +52,20 @@ export function Provider({ lang, pathname, params, children }: ProviderProps) {
         onLocaleChange(newLocale) {
           const segments = appPath.split('/').filter(Boolean);
           const languages: readonly string[] = i18n.languages;
-        
+
           if (segments.length > 0 && languages.includes(segments[0])) {
             segments.shift();
           }
-        
+
           const shouldHide =
             i18n.hideLocale === 'default-locale' &&
             newLocale === i18n.defaultLanguage;
-        
+
           const nextAppPath = [
             ...(shouldHide ? [] : [newLocale]),
             ...segments,
           ].join('/');
-        
+
           astroNavigate(withBase(`/${nextAppPath}`));
         },
       }}

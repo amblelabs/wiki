@@ -28,7 +28,7 @@ function escapeXml(value: string): string {
 
 export const GET: APIRoute = async ({ site }) => {
   const baseUrl =
-    site ?? new URL(import.meta.env.SITE ?? 'https://vmbbi.github.io');
+    site ?? new URL(import.meta.env.SITE ?? 'https://amblelabs.dev');
   const url = (path: string): string => new URL(path, baseUrl).toString();
 
   const entries: SitemapEntry[] = [
