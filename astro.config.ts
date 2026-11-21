@@ -1,7 +1,6 @@
 // @ts-check
 import type { IncomingMessage, ServerResponse } from 'node:http';
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import fumadocs from '@fumadocs/astro';
 
@@ -18,10 +17,8 @@ export default defineConfig({
       includeProcessedMarkdown: true,
       collections: {
         docs: { dir: 'content/wiki' },
-        meta: { dir: 'content/wiki'}
       },
     }),
-    react()
   ],
   vite: {
     plugins: [
