@@ -56,7 +56,7 @@ ${await page.data.getText('processed')}`,
 
 export function getPageImage(page: InferPageType<typeof source>) {
   const locale = page.locale ?? i18n.defaultLanguage;
-  const segments = [locale, ...page.slugs, 'image.png'];
+  const segments = [locale, ...page.slugs, 'image.webp'];
   
   return {
     segments,
