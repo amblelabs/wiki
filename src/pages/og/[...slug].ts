@@ -64,7 +64,7 @@ export const GET: APIRoute = async ({ props }) => {
     {
       width: 1200,
       height: 630,
-      format: 'webp',
+      format: 'png',
       images: [
         {
           src: Logo.src,
