@@ -8,8 +8,8 @@
     "libDir": "./lib",
     "utils": "./lib/utils"
   },
-  "baseDir": "",
+  "baseDir": "src",
   "uiLibrary": "base-ui",
-  "framework": "next",
+  "framework": "astro",
   "commands": {}
 }

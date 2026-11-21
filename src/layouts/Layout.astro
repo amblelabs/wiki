@@ -1,0 +1,48 @@
+---
+import '@/styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import { i18n } from '@/lib/i18n';
+import favicon from '../../public/wiki/favicon.svg'
+
+interface Props {
+  lang?: string;
+  title: string;
+  description?: string;
+  image?: string;
+}
+
+const { lang = Astro.currentLocale ?? i18n.defaultLanguage, title, description, image } = Astro.props;
+const ogImageUrl = image
+  ? new URL(image, Astro.site ?? Astro.url).toString()
+  : undefined;
+---
+
+<html lang={lang} class="font-sans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <ClientRouter />
+    {description && <meta name="description" content={description} />}
+    <meta property="og:title" content={title} />
+        {description && <meta property="og:description" content={description} />}
+        {ogImageUrl && (
+          <>
+            <meta property="og:image" content={ogImageUrl} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:image" content={ogImageUrl} />
+          </>
+        )}
+    <link rel="icon" type="image/png" href={favicon.src} />
+    <link rel="sitemap" href="/wiki/sitemap.xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <slot />
+  </body>
+</html>
