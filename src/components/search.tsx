@@ -1,4 +1,3 @@
-// src/components/search.tsx
 import {
   SearchDialog,
   SearchDialogClose,

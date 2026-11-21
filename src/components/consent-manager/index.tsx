@@ -1,4 +1,3 @@
-// src/components/consent-manager/index.tsx
 import type { ReactNode } from 'react';
 import ConsentProvider from './provider';
 

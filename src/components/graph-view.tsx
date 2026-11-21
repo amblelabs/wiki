@@ -1,5 +1,5 @@
 'use client';
-// src/components/graph-view.tsx
+
 import {
   lazy,
   type RefObject,

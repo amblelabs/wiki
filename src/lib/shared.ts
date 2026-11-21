@@ -1,4 +1,3 @@
-// src/lib/shared.ts
 import { createGetUrl } from 'fumadocs-core/source';
 
 export const appName = "AmbleLabs Wiki";

@@ -1,4 +1,3 @@
-// src/lib/og.server.ts
 import { readFile } from 'node:fs/promises';
 import { ogData, ogFallback, type OgMeta } from './shared';
 
