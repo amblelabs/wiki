@@ -9,7 +9,8 @@ export default defineConfig({
   base: '/wiki',
   build: {
       format: 'file',
-    },
+  },
+  trailingSlash: 'ignore',
   integrations: [
     fumadocs({
       components: './src/components/mdx.tsx',
