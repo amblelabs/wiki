@@ -63,6 +63,6 @@ const markdownUrl = getPageMarkdownUrl(page).url;
     markdownUrl={markdownUrl}
     githubUrl={`https://github.com/${gitConfig.user}/${gitConfig.repo}/blob/${gitConfig.branch}/content/wiki/${encodeURI(page.path)}`}
   >
-    <Content components={{ ...getMDXComponents(undefined, page), img: DocImage }} />
+    <Content components={{ img: DocImage,  a: createRelativeLink(source, page) }} />
   </Docs>
 </Layout>

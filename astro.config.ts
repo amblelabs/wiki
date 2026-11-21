@@ -7,6 +7,9 @@ import fumadocs from '@fumadocs/astro';
 export default defineConfig({
   site: 'https://vmbbi.github.io',
   base: '/wiki',
+  build: {
+      format: 'file',
+    },
   integrations: [
     fumadocs({
       components: './src/components/mdx.tsx',
