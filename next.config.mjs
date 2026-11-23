@@ -6,7 +6,6 @@ const withMDX = createMDX();
 const config = {
   serverExternalPackages: ["@takumi-rs/image-response"],
   output: "export",
-  basePath: "/wiki",
   reactStrictMode: true,
   images: {
     loader: "custom",
