@@ -13,7 +13,7 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 import { gitConfig, ogData, ogFallback } from "@/lib/shared";
 import { ViewOptionsPopover } from "@/components/page-actions";
 import { DocsFooter } from "@/components/docs-footer";
-
+import Logo from '@/public/logo.png'
 export default async function Page({
   params,
 }: PageProps<"/[lang]/[[...slug]]">) {
@@ -76,5 +76,8 @@ export async function generateMetadata({
     openGraph: {
       images: getPageImage(page).url,
     },
+    icons: {
+        icon: Logo.src,
+      },
   };
 }
