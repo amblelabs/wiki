@@ -1,6 +1,7 @@
-import { defineMiddleware } from 'astro:middleware';
+import { defineMiddleware, sequence } from 'astro:middleware';
+import { onRequest as c15tMiddleware } from 'c15t/astro/middleware';
 
-export const onRequest = defineMiddleware(async (_context, next) => {
+const fumadocsDevMiddleware = defineMiddleware(async (_context, next) => {
   const response = await next();
 
   if (
@@ -22,3 +23,8 @@ export const onRequest = defineMiddleware(async (_context, next) => {
 
   return response;
 });
+
+export const onRequest = sequence(
+  c15tMiddleware,
+  fumadocsDevMiddleware,
+);

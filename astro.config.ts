@@ -11,7 +11,7 @@ export default defineConfig({
   build: {
       format: 'file',
   },
-  trailingSlash: 'ignore',
+  trailingSlash: 'never',
   integrations: [
     fumadocs({
       components: './src/components/mdx.tsx',
@@ -21,6 +21,7 @@ export default defineConfig({
       },
     }),
     c15t({
+      middleware: false,
       mode: local({
         policyRules: [
           policyRulePresets.europeOptIn(),
@@ -63,13 +64,17 @@ export default defineConfig({
     ssr: {
       noExternal: ["c15t", "@c15t/astro"],
     },
-  },
-  i18n: {
-      locales: ['en-gb', 'zh-hk', 'zh-cn', 'en-us'],
-      defaultLocale: 'en-gb',
-      routing: {
-        prefixDefaultLocale: true,
-        redirectToDefaultLocale: true,
+    environments: {
+      prerender: {
+        resolve: {
+          noExternal: ["c15t", "@c15t/astro"],
+        },
       },
     },
+  },
+  i18n: {
+    locales: ['en-gb', 'zh-hk', 'zh-cn', 'en-us'],
+    defaultLocale: 'en-gb',
+    routing: "manual",
+  },
 });
