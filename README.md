@@ -2,7 +2,7 @@
 This is the repository for the Adventures in Time Wiki. It is currently being updated by a new team of maintainers under the AIT Wiki Archivus team as of 22/08/2025.
 
 ## General Information
-This wiki can be located [here](https://amblelabs.dev/wiki).
+This wiki can be located [here](https://wiki.amblelabs.dev).
 <br>It is built using [nextjs](https://nextjs.org/), [react](https://react.dev/), [tailwind](https://tailwindcss.com/) and [fumadocs](https://www.fumadocs.dev/) .
 <br>The Archivus team uses [sveltia CMS](https://sveltiacms.app/) for editing.
 

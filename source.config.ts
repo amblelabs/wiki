@@ -28,7 +28,6 @@ export default defineConfig({
         remarkImage,
         {
           placeholder: "blur",
-          basePath: "/wiki",
         },
       ],
     ],
